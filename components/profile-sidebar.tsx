@@ -1,6 +1,6 @@
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
 import { profileData } from "@/lib/portfolio-data";
-
+import Image from 'next/image'
 interface ProfileSidebarProps {
   data?: typeof profileData;
 }
@@ -13,9 +13,10 @@ export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
         <div className="relative w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/20 via-accent/5 to-transparent animate-pulse-slow" />
           <div className="absolute inset-[2px] rounded-3xl bg-secondary overflow-hidden">
-            <img
+            <Image
               src={data.avatar || "/placeholder.svg"}
               alt={data.name}
+              fill
               className="w-full h-full object-cover"
             />
           </div>

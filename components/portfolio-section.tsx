@@ -2,7 +2,7 @@
 
 import { ExternalLink, Eye } from "lucide-react"
 import { portfolioData } from "@/lib/portfolio-data"
-
+import Image from 'next/image'
 interface PortfolioSectionProps {
   data?: typeof portfolioData
 }
@@ -22,9 +22,10 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
             className="group relative bg-secondary rounded-xl md:rounded-2xl border border-border overflow-hidden hover:border-accent transition-all duration-300 hover:shadow-xl hover:shadow-accent/10"
           >
             <div className="aspect-[4/3] overflow-hidden bg-background">
-              <img
+              <Image
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
+                fill
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>

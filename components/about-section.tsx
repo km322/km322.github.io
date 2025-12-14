@@ -1,6 +1,6 @@
 import { PenTool, Code, Smartphone, Zap } from "lucide-react";
 import { aboutData } from "@/lib/portfolio-data";
-
+import Image from 'next/image'
 const iconMap = {
   Code,
   Zap,
@@ -73,9 +73,11 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                 key={index}
                 className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90"
               >
-                <img
+                <Image
                   src={client.logo || "/placeholder.svg"}
                   alt={client.name}
+                  width={110}
+                  height={46}
                   className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
