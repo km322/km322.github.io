@@ -29,10 +29,10 @@ export default function Home() {
             <ProfileSidebar data={profileData} />
 
             {/* Main Content */}
-            <main className="flex-1 bg-card/70 rounded-xl md:rounded-2xl border border-border overflow-hidden">
+            <main className="flex-1 bg-card/75 rounded-xl md:rounded-2xl border border-border overflow-hidden">
               {/* Navigation */}
               <nav className="flex gap-1 sm:gap-2 md:gap-4 p-3 sm:p-4 md:p-6 border-b border-border overflow-x-auto scrollbar-hide">
-                {["about", "resume", "portfolio", "contact"].map((section) => (
+                {["about", "resume", "projects", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() => setActiveSection(section)}
@@ -50,7 +50,7 @@ export default function Home() {
               <div className="p-4 sm:p-5 md:p-6 lg:p-8">
                 {activeSection === "about" && <AboutSection data={aboutData} />}
                 {activeSection === "resume" && <ResumeSection data={resumeData} />}
-                {activeSection === "portfolio" && <PortfolioSection data={portfolioData} />}
+                {activeSection === "projects" && <PortfolioSection data={portfolioData} />}
                 {activeSection === "contact" && <ContactSection data={contactData} />}
               </div>
             </main>

@@ -12,8 +12,15 @@ export function StarBackground() {
     const context = canvas.getContext("2d")
     if (!context) return
 
-    const getAccentColor = () => {
-      return getComputedStyle(document.documentElement).getPropertyValue("--accent").trim()
+    const getStarColor = () => {
+      const isDark = document.documentElement.classList.contains("dark")
+      if (isDark) {
+        // Dark mode: use bright blue accent
+        return "oklch(0.97 0 0)"
+      } else {
+        // Light mode: use dark purple/indigo
+        return "oklch(0.269 0 0)"
+      }
     }
 
     const STAR_SIZE = 1.5
@@ -121,12 +128,12 @@ export function StarBackground() {
 
     function render() {
       context.clearRect(0, 0, width, height)
-      const accentColor = getAccentColor()
+      const starColor = getStarColor()
 
       stars.forEach((star) => {
         context.beginPath()
         context.arc(star.x, star.y, STAR_SIZE * star.z * scale, 0, Math.PI * 2)
-        context.fillStyle = accentColor
+        context.fillStyle = starColor
         context.globalAlpha = Math.min(1, 0.9 + 0.4 * star.z)
         context.fill()
       })
@@ -171,6 +178,15 @@ export function StarBackground() {
       canvas.height = height
     }
 
+    const observer = new MutationObserver(() => {
+      render()
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
     generate()
     step()
 
@@ -181,6 +197,7 @@ export function StarBackground() {
 
     return () => {
       cancelAnimationFrame(animationFrameId)
+      observer.disconnect()
       window.removeEventListener("mousemove", onMouseMove)
       window.removeEventListener("touchmove", onTouchMove)
       window.removeEventListener("mouseleave", onMouseLeave)
