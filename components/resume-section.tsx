@@ -1,5 +1,5 @@
-import { BookOpen, Briefcase } from 'lucide-react'
-import { resumeData } from '@/lib/portfolio-data'
+import { BookOpen, Briefcase } from "lucide-react"
+import { resumeData } from "@/lib/portfolio-data"
 
 interface ResumeSectionProps {
   data?: typeof resumeData
@@ -49,20 +49,19 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
         </div>
       </div>
 
-      {/* Skills */}
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">My Skills</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">Languages</h3>
         <div className="space-y-5 md:space-y-6">
-          {data.skills.map((skill, index) => (
+          {data.languages.map((language, index) => (
             <div key={index}>
               <div className="flex justify-between mb-2">
-                <span className="text-xs md:text-sm font-medium text-foreground">{skill.name}</span>
-                <span className="text-xs md:text-sm text-muted-foreground">{skill.level}%</span>
+                <span className="text-xs md:text-sm font-medium text-foreground">{language.name}</span>
+                <span className="text-xs md:text-sm text-muted-foreground">{language.level}%</span>
               </div>
               <div className="h-2 bg-secondary rounded-full overflow-hidden">
                 <div
                   className="h-full bg-accent rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: `${skill.level}%` }}
+                  style={{ width: `${language.level}%` }}
                 />
               </div>
             </div>
