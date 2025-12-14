@@ -29,7 +29,7 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
               />
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4 md:p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4 md:p-6">
               <h3 className="text-lg md:text-xl font-bold text-foreground mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                 {project.title}
               </h3>

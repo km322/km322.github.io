@@ -29,7 +29,7 @@ export default function Home() {
             <ProfileSidebar data={profileData} />
 
             {/* Main Content */}
-            <main className="flex-1 bg-card/90 rounded-xl md:rounded-2xl border border-border overflow-hidden">
+            <main className="flex-1 bg-card/80 rounded-xl md:rounded-2xl border border-border overflow-hidden">
               {/* Navigation */}
               <nav className="flex gap-1 sm:gap-2 md:gap-4 p-3 sm:p-4 md:p-6 border-b border-border overflow-x-auto scrollbar-hide">
                 {["about", "resume", "projects", "contact"].map((section) => (

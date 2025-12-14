@@ -6,10 +6,6 @@ export const profileData = {
   phone: "925-997-3105",
   github: "https://github.com/km322",
   linkedin: "https://linkedin.com/in/ketan-mittal322",
-  social: {
-    github: "https://github.com/km322",
-    linkedin: "https://linkedin.com/in/ketan-mittal322",
-  },
 }
 
 export const aboutData = {
@@ -37,28 +33,6 @@ export const aboutData = {
       icon: "PenTool",
       title: "UI/UX Design",
       description: "Designing intuitive and beautiful user interfaces that enhance user experience.",
-    },
-  ],
-  testimonials: [
-    {
-      avatar: "/professional-man.jpg",
-      name: "Daniel Lewis",
-      text: "John was hired to create a corporate identity. We were very pleased with the work done. He has a lot of experience and is very concerned about the needs of client.",
-    },
-    {
-      avatar: "/professional-woman-diverse.png",
-      name: "Jessica Miller",
-      text: "John was hired to create a corporate identity. We were very pleased with the work done. He has a lot of experience and is very concerned about the needs of client.",
-    },
-    {
-      avatar: "/professional-man.jpg",
-      name: "Michael Chen",
-      text: "Outstanding work! John delivered a high-quality product that exceeded our expectations. His attention to detail is remarkable.",
-    },
-    {
-      avatar: "/professional-woman-diverse.png",
-      name: "Sarah Johnson",
-      text: "Professional, creative, and highly skilled. John is the developer you want on your team for any complex project.",
     },
   ],
   clients: [
@@ -173,71 +147,6 @@ export const portfolioData = {
       tech: ["Next.js", "Sanity CMS", "Stripe"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/restaurant",
-    },
-  ],
-}
-
-export const blogData = {
-  posts: [
-    {
-      title: "Building Modern Web Applications with Next.js 15",
-      category: "Development",
-      date: "Mar 15, 2024",
-      readTime: "8 min",
-      image: "/web-development-coding.png",
-      excerpt: "Deep dive into Next.js 15 features and App Router enhancements.",
-      tags: ["Next.js", "React", "Web Development"],
-      slug: "building-modern-web-apps-nextjs-15",
-    },
-    {
-      title: "Microservices Architecture: A Complete Guide",
-      category: "Architecture",
-      date: "Mar 8, 2024",
-      readTime: "12 min",
-      image: "/software-architecture.jpg",
-      excerpt: "Design scalable microservices with real-world examples.",
-      tags: ["Architecture", "Backend", "DevOps"],
-      slug: "microservices-architecture-guide",
-    },
-    {
-      title: "The Art of UI/UX: Creating Delightful Experiences",
-      category: "Design",
-      date: "Feb 28, 2024",
-      readTime: "6 min",
-      image: "/ui-ux-design-concept.png",
-      excerpt: "Principles of exceptional UI/UX design for interfaces users love.",
-      tags: ["Design", "UI/UX", "Frontend"],
-      slug: "art-of-uiux-delightful-experiences",
-    },
-    {
-      title: "TypeScript Best Practices for Large-Scale Applications",
-      category: "Development",
-      date: "Feb 20, 2024",
-      readTime: "10 min",
-      image: "/web-development-coding.png",
-      excerpt: "Master TypeScript patterns for maintainable, type-safe code.",
-      tags: ["TypeScript", "JavaScript", "Best Practices"],
-      slug: "typescript-best-practices",
-    },
-    {
-      title: "Building Real-Time Applications with WebSockets",
-      category: "Development",
-      date: "Feb 12, 2024",
-      readTime: "9 min",
-      image: "/software-architecture.jpg",
-      excerpt: "Implement real-time features using WebSockets and modern frameworks.",
-      tags: ["WebSockets", "Real-time", "Backend"],
-      slug: "realtime-apps-websockets",
-    },
-    {
-      title: "Mastering CSS Grid and Flexbox Layouts",
-      category: "Design",
-      date: "Feb 5, 2024",
-      readTime: "7 min",
-      image: "/ui-ux-design-concept.png",
-      excerpt: "Modern CSS layout techniques with practical examples.",
-      tags: ["CSS", "Layout", "Frontend"],
-      slug: "mastering-css-grid-flexbox",
     },
   ],
 }
