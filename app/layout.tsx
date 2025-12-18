@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'John Doe - Full-Stack Developer',
-  description: 'Portfolio of John Doe, a Full-Stack Developer specializing in modern web technologies',
+  title: 'Ketan Mittal - Developer',
+  description: 'Portfolio of Ketan Mittal, a Student and ',
   generator: 'v0.app',
   icons: {
     icon: [

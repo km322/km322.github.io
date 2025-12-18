@@ -79,19 +79,21 @@ export const resumeData = {
       title: "University of California, San Diego (UCSD)",
       period: "September 2023 – Present",
       description:
-        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science | GPA: 3.97",
+        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science \n GPA: 3.97/4.0",
     },
   ],
   experience: [
     {
       title: "Software Engineering Intern",
       period: "June 2025 – Present",
+      link: "https://example.com/software-intern",
       description:
         "Architected an MCP-powered agentic LLM on Microsoft Power Platform to automate real-time data queries and user support, enabling deployment across MS Teams and web apps for 100+ users and reducing resolution time by ~3 minutes per request. Built a Retrieval-Augmented Generation (RAG) framework for intelligent access to supply-chain data, combining 20+ optimized SQL stored procedures, Boomi APIs, and FedEx API integrations.",
     },
     {
       title: "Enterprise AI Intern",
       period: "May 2024 – May 2025",
+      link: "https://example.com/ai-intern",
       description:
         "Implemented GPT-4.1 in a Customer Service RAG-based Conversational AI, resulting in a 10x reduction in cost per LLM call, 52% faster call resolution times, and increasing model accuracy to 94%. Engineered parallelized RESTful microservices using Python and FastAPI, containerized with Docker and orchestrated via Kubernetes, implementing caching, load balancing, and CI/CD pipelines.",
     },
@@ -104,6 +106,7 @@ export const resumeData = {
     {
       title: "Engineering Manager",
       period: "November 2024 – Present",
+      link: "https://example.com/engineering-manager",
       description:
         "Manage and support a team of over 8 developers on an active project by facilitating architectural decisions, code reviews, monitoring technical milestones, and aligning team efforts with organizational objectives. Collaborated with UCSD Health to develop an interactive, gamified e-bike safety certification website using Firebase and the MERN stack.",
     },
