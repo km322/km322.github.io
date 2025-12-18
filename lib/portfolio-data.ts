@@ -1,12 +1,12 @@
 export const profileData = {
   name: "Ketan Mittal",
-  title: "Software Engineer",
+  title: "Data Scientist | Machine Learning & AI",
   avatar: "/professional-developer-avatar.png",
   email: "mittal.ketan1@gmail.com",
   phone: "925-997-3105",
   github: "https://github.com/km322",
   linkedin: "https://linkedin.com/in/ketan-mittal322",
-}
+};
 
 export const aboutData = {
   description: [
@@ -17,40 +17,69 @@ export const aboutData = {
     {
       icon: "Code",
       title: "Frontend Development",
-      description: "Building modern, responsive web applications with React, Next.js, and TypeScript.",
+      description:
+        "Building modern, responsive web applications with React, Next.js, and TypeScript.",
     },
     {
       icon: "Zap",
       title: "Backend Development",
-      description: "Creating robust APIs and server-side solutions with Node.js and modern frameworks.",
+      description:
+        "Creating robust APIs and server-side solutions with Node.js and modern frameworks.",
     },
     {
       icon: "Smartphone",
       title: "Mobile Development",
-      description: "Professional development of mobile applications with React Native and modern tools.",
+      description:
+        "Professional development of mobile applications with React Native and modern tools.",
     },
     {
       icon: "PenTool",
       title: "UI/UX Design",
-      description: "Designing intuitive and beautiful user interfaces that enhance user experience.",
+      description:
+        "Designing intuitive and beautiful user interfaces that enhance user experience.",
     },
   ],
   clients: [
-    { name: "TechCorp", logo: "/tech-company-logo.jpg" },
-    { name: "StartupHub", logo: "/startup-logo.png" },
-    { name: "DesignStudio", logo: "/design-agency-logo.png" },
-    { name: "CodeLabs", logo: "/software-company-logo.png" },
-    { name: "WebSolutions", logo: "/web-agency-logo.jpg" },
-    { name: "AppMakers", logo: "/app-development-logo.jpg" },
+    {
+      name: "TechCorp",
+      logo: "/tech-company-logo.jpg",
+      website: "https://techcorp.com",
+    },
+    {
+      name: "StartupHub",
+      logo: "/startup-logo.png",
+      website: "https://startuphub.com",
+    },
+    {
+      name: "DesignStudio",
+      logo: "/design-agency-logo.png",
+      website: "https://designstudio.com",
+    },
+    {
+      name: "CodeLabs",
+      logo: "/software-company-logo.png",
+      website: "https://codelabs.com",
+    },
+    {
+      name: "WebSolutions",
+      logo: "/web-agency-logo.jpg",
+      website: "https://websolutions.com",
+    },
+    {
+      name: "AppMakers",
+      logo: "/app-development-logo.jpg",
+      website: "https://appmakers.com",
+    },
   ],
-}
+};
 
 export const resumeData = {
   education: [
     {
       title: "University of California, San Diego (UCSD)",
       period: "September 2023 – Present",
-      description: "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science | GPA: 3.97",
+      description:
+        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science | GPA: 3.97",
     },
   ],
   experience: [
@@ -89,7 +118,7 @@ export const resumeData = {
     { name: "React", level: 95 },
     { name: "Next.js", level: 90 },
   ],
-}
+};
 
 export const portfolioData = {
   categories: ["all", "web design", "applications", "web development"],
@@ -149,9 +178,9 @@ export const portfolioData = {
       githubUrl: "https://github.com/johndoe/restaurant",
     },
   ],
-}
+};
 
 export const contactData = {
   email: "mittal.ketan1@gmail.com",
   phone: "925-997-3105",
-}
+};

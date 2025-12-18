@@ -1,13 +1,13 @@
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
 import { profileData } from "@/lib/portfolio-data";
-import Image from 'next/image'
+import Image from "next/image";
 interface ProfileSidebarProps {
   data?: typeof profileData;
 }
 
 export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
   return (
-    <aside className="w-full lg:w-80 bg-card/90 rounded-2xl border border-border p-4 md:p-6 lg:sticky lg:top-8 h-fit">
+    <aside className="w-full lg:w-87 bg-card/80 rounded-2xl border border-border p-4 md:p-6 lg:sticky lg:top-8 h-fit">
       {/* Profile Image */}
       <div className="flex flex-col items-center">
         <div className="relative w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">

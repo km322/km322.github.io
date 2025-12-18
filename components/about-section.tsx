@@ -1,6 +1,6 @@
 import { PenTool, Code, Smartphone, Zap } from "lucide-react";
 import { aboutData } from "@/lib/portfolio-data";
-import Image from 'next/image'
+import Image from "next/image";
 const iconMap = {
   Code,
   Zap,
@@ -64,14 +64,17 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
       {/* Clients with Marquee Animation */}
       <div>
         <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-          Clients
+          Professional Experience
         </h3>
         <div className="relative overflow-hidden py-4">
           <div className="flex gap-4 md:gap-6 animate-marquee-slow">
             {[...data.clients, ...data.clients].map((client, index) => (
-              <div
+              <a
                 key={index}
-                className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90"
+                href={client.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90 hover:opacity-100"
               >
                 <Image
                   src={client.logo || "/placeholder.svg"}
@@ -80,7 +83,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                   height={46}
                   className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>
