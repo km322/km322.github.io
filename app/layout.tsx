@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Ketan Mittal - Developer',
-  description: 'Portfolio of Ketan Mittal, a Student and ',
+  title: 'Ketan Mittal - Student Developer',
+  description: 'Portfolio of Ketan Mittal, a student studying Data Science at UCSD and aspiring AI/ML Engineer',
   generator: 'v0.app',
   icons: {
     icon: [
