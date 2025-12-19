@@ -36,9 +36,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               <p className="text-xs md:text-sm text-accent mb-2">
                 {item.period}
               </p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                {item.description}
-              </p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }} />
             </div>
           ))}
         </div>
@@ -76,9 +74,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               <p className="text-xs md:text-sm text-accent mb-2">
                 {item.period}
               </p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                {item.description}
-              </p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }} />
             </div>
           ))}
         </div>
@@ -88,7 +84,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
         <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
           Languages
         </h3>
-        <div className="space-y-5 md:space-y-6">
+        <div className="space-y-5 md:space-y-4">
           {data.languages.map((language, index) => (
             <div key={index}>
               <div className="flex justify-between mb-2">

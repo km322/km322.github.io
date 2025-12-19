@@ -10,8 +10,8 @@ export const profileData = {
 
 export const aboutData = {
   description: [
-    "I'm a Data Science student and software engineer focused on building intelligent, scalable systems that solve real-world problems. I enjoy working at the intersection of machine learning, backend engineering, and product to turn complex ideas into reliable, impactful applications.",
-    "My work centers on developing AI-driven products end to end - from data and model development to backend infrastructure and user-facing tools. I've built and deployed LLM-powered systems, analytics pipelines, and cloud native services, and I enjoy creating clean interfaces that make complex systems easy to use.",
+    "I'm a Data Science student and software engineer building intelligent, scalable systems that solve real-world problems across diverse domains - from neuroscience research to warehouse operations or to healthcare. I thrive at the intersection of machine learning, backend engineering, and product, turning complex ideas into reliable, impactful applications. My ultimate goal is to leverage these skills to create solutions that positively impact millions of people.",
+    "I develop AI-driven products end-to-end, from data and model development to backend infrastructure and user-facing tools. I've built and deployed LLM-powered systems, analytics pipelines, and cloud-native services, always aiming to create clean interfaces that make complex systems easy to use.",
   ],
   services: [
     {
@@ -76,50 +76,62 @@ export const aboutData = {
 export const resumeData = {
   education: [
     {
-      title: "University of California, San Diego (UCSD)",
-      period: "September 2023 – Present",
+      title: "University of California, San Diego",
+      period: "September 2023 – March 2027",
       description:
-        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science \n GPA: 3.97/4.0",
+        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science<br>GPA: <strong>3.97</strong>/4.0",
     },
   ],
   experience: [
     {
-      title: "Software Engineering Intern",
+      title: "Resmed - Software Engineering Intern",
       period: "June 2025 – Present",
-      link: "https://example.com/software-intern",
       description:
-        "Architected an MCP-powered agentic LLM on Microsoft Power Platform to automate real-time data queries and user support, enabling deployment across MS Teams and web apps for 100+ users and reducing resolution time by ~3 minutes per request. Built a Retrieval-Augmented Generation (RAG) framework for intelligent access to supply-chain data, combining 20+ optimized SQL stored procedures, Boomi APIs, and FedEx API integrations.",
+        "Built AI-driven solutions in warehouse operations to help teams save time, reduce costs, and gain actionable insights.",
     },
     {
-      title: "Enterprise AI Intern",
-      period: "May 2024 – May 2025",
-      link: "https://example.com/ai-intern",
-      description:
-        "Implemented GPT-4.1 in a Customer Service RAG-based Conversational AI, resulting in a 10x reduction in cost per LLM call, 52% faster call resolution times, and increasing model accuracy to 94%. Engineered parallelized RESTful microservices using Python and FastAPI, containerized with Docker and orchestrated via Kubernetes, implementing caching, load balancing, and CI/CD pipelines.",
-    },
-    {
-      title: "Computer Vision Undergraduate Researcher",
+      title:
+        "Talmo Lab at the SALK Institute - Computer Vision Undergraduate Researcher",
       period: "March 2025 – Present",
+      link: "https://talmolab.org/members/ketan-mittal.html",
       description:
-        "Enhanced computer vision-based behavioral tracking for ALS detection in live mice by integrating Laplacian variance-based quality checks with OpenCV. Applied transformer architectures for time-series analysis using Keypoint MoSeq embeddings for early detection of ALS movement biomarkers in mice - identifying patterns up to 40 days before symptom onset.",
+        "Contributed to neuroscience research using computer vision and machine learning to enable early detection of ALS biomarkers in mice.",
     },
     {
-      title: "Engineering Manager",
+      title: "Triton Software Engineering - Engineering Manager",
       period: "November 2024 – Present",
-      link: "https://example.com/engineering-manager",
+      link: "https://tritonse.github.io/about/",
       description:
-        "Manage and support a team of over 8 developers on an active project by facilitating architectural decisions, code reviews, monitoring technical milestones, and aligning team efforts with organizational objectives. Collaborated with UCSD Health to develop an interactive, gamified e-bike safety certification website using Firebase and the MERN stack.",
+        "Led a team building software solutions for nonprofit organizations to drive real-world impact and community engagement.",
+    },
+    {
+      title: "Data Science Student Society - Project Director",
+      period: "January 2024 – January 2026",
+      link: "https://www.ds3atucsd.com/board",
+      description:
+        "Oversaw quarterly AI and data science projects, guiding a 60-member team to deliver initiatives with tangible real-world outcomes.",
+    },
+    {
+      title: "Humana - Enterprise AI Intern",
+      period: "May 2024 – May 2025",
+      description:
+        "Worked on enterprise AI initiatives to enhance customer service through advanced machine learning and NLP applications.",
+    },
+    {
+      title: "Halıcıoğlu Data Science Institute - Instructional Assistant",
+      period: "December 2024 – March 2025",
+      description:
+        "Led office hours for DSC 40B (Theoretical Foundations of Data Science II), teaching algorithms and data structures to support student learning in data science.",
     },
   ],
   languages: [
     { name: "Python", level: 95 },
-    { name: "TypeScript", level: 90 },
-    { name: "Java", level: 85 },
     { name: "SQL", level: 90 },
-    { name: "JavaScript", level: 95 },
-    { name: "C++", level: 80 },
-    { name: "React", level: 95 },
-    { name: "Next.js", level: 90 },
+    { name: "Java", level: 85 },
+    { name: "TypeScript", level: 95 },
+    { name: "JavaScript", level: 90 },
+    { name: "R", level: 70 },
+    { name: "C++/C", level: 25 },
   ],
 };
 
