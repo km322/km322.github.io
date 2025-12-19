@@ -136,14 +136,11 @@ export const resumeData = {
 };
 
 export const portfolioData = {
-  categories: ["all", "web design", "applications", "web development"],
   projects: [
     {
       title: "E-Commerce Platform",
-      category: "web development",
       image: "/modern-ecommerce-website.png",
       description: "Full-stack e-commerce solution with payment integration",
-      tech: ["Next.js", "Node.js", "PostgreSQL"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/ecommerce",
     },
