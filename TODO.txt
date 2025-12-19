@@ -1,0 +1,10 @@
+- Finish up website
+    - update resume section with skills
+    - update projects section with skills and images and urls
+    - Make contact section work with Emailjs
+- Host on cloudflare
+- Enable DNS and stuff
+- Add Robots.txt
+- Buy a domain
+- Make km322.github.io redirect to new url
+- Optimize
