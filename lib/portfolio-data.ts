@@ -1,7 +1,7 @@
 export const profileData = {
   name: "Ketan Mittal",
   title: "Data Scientist | Machine Learning & AI",
-  avatar: "/professional-developer-avatar.png",
+  avatar: "/Ketan_Mittal_1154170.jpg",
   email: "mittal.ketan1@gmail.com",
   phone: "925-997-3105",
   github: "https://github.com/km322",
@@ -10,65 +10,65 @@ export const profileData = {
 
 export const aboutData = {
   description: [
-    "I'm a Software Engineer from San Francisco, California, specializing in web development and creating innovative digital solutions. I enjoy turning complex problems into simple, beautiful and intuitive applications.",
-    "My job is to build your website or application so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I've worked with various technologies including React, Next.js, Node.js, and modern cloud platforms.",
+    "I'm a Data Science student and software engineer focused on building intelligent, scalable systems that solve real-world problems. I enjoy working at the intersection of machine learning, backend engineering, and product to turn complex ideas into reliable, impactful applications.",
+    "My work centers on developing AI-driven products end to end - from data and model development to backend infrastructure and user-facing tools. I've built and deployed LLM-powered systems, analytics pipelines, and cloud native services, and I enjoy creating clean interfaces that make complex systems easy to use.",
   ],
   services: [
     {
-      icon: "Code",
-      title: "Frontend Development",
+      icon: "Brain",
+      title: "Machine Learning & AI",
       description:
-        "Building modern, responsive web applications with React, Next.js, and TypeScript.",
+        "Developing and deploying machine learning and AI systems, including LLM-powered applications, computer vision models, and predictive pipelines for real-world use cases.",
+    },
+    {
+      icon: "Database",
+      title: "Data Science & Analytics",
+      description:
+        "Working with structured and unstructured data to build analytics pipelines, evaluate models, and surface insights using Python, SQL, and statistical techniques.",
+    },
+    {
+      icon: "Code",
+      title: "Backend Development",
+      description:
+        "Building scalable backend systems and microservices for AI-driven applications, including REST APIs, RAG pipelines, database integrations, and cloud-native deployments.",
     },
     {
       icon: "Zap",
-      title: "Backend Development",
+      title: "Frontend Development",
       description:
-        "Creating robust APIs and server-side solutions with Node.js and modern frameworks.",
-    },
-    {
-      icon: "Smartphone",
-      title: "Mobile Development",
-      description:
-        "Professional development of mobile applications with React Native and modern tools.",
-    },
-    {
-      icon: "PenTool",
-      title: "UI/UX Design",
-      description:
-        "Designing intuitive and beautiful user interfaces that enhance user experience.",
+        "Developing practical, data-focused frontends and internal tools with React to enable users and engineers to interact with models, APIs, and secure systems.",
     },
   ],
   clients: [
     {
-      name: "TechCorp",
-      logo: "/tech-company-logo.jpg",
-      website: "https://techcorp.com",
+      name: "Resmed",
+      logo: "/resmed.png",
+      website: "https://www.resmed.com",
     },
     {
-      name: "StartupHub",
-      logo: "/startup-logo.png",
-      website: "https://startuphub.com",
+      name: "Humana",
+      logo: "/humana.png",
+      website: "https://www.humana.com",
     },
     {
-      name: "DesignStudio",
-      logo: "/design-agency-logo.png",
-      website: "https://designstudio.com",
+      name: "Talmo Lab - Salk Institute",
+      logo: "/salk.jpg",
+      website: "https://www.salk.edu",
     },
     {
-      name: "CodeLabs",
-      logo: "/software-company-logo.png",
-      website: "https://codelabs.com",
+      name: "Triton Software Engineering",
+      logo: "/tse.jpeg",
+      website: "https://tritonse.github.io",
     },
     {
-      name: "WebSolutions",
-      logo: "/web-agency-logo.jpg",
-      website: "https://websolutions.com",
+      name: "Data Science Student Society",
+      logo: "/ds3.png",
+      website: "https://www.ds3atucsd.com",
     },
     {
-      name: "AppMakers",
-      logo: "/app-development-logo.jpg",
-      website: "https://appmakers.com",
+      name: "Halıcıoğlu Data Science Institute, UC San Diego",
+      logo: "/hdsi.png",
+      website: "https://datascience.ucsd.edu",
     },
   ],
 };

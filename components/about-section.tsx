@@ -1,11 +1,11 @@
-import { PenTool, Code, Smartphone, Zap } from "lucide-react";
+import { Code, Zap, Brain, Database } from "lucide-react";
 import { aboutData } from "@/lib/portfolio-data";
 import Image from "next/image";
 const iconMap = {
   Code,
   Zap,
-  Smartphone,
-  PenTool,
+  Brain,
+  Database,
 };
 
 interface AboutSectionProps {

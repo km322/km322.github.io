@@ -1,30 +1,69 @@
-# Minimalist portfolio
+# Ketan Mittal's Portfolio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern, minimalist portfolio website showcasing projects, skills, and experience. Built with Next.js and designed for a clean, responsive user experience.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/ketans-projects-2523f2ac/v0-minimalist-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/UiamtTC1XRT)
+## Features
 
-## Overview
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Dark/Light Theme Toggle**: Switch between themes for better accessibility
+- **Interactive Sections**: About, Portfolio, Resume, and Contact sections
+- **Project Showcase**: Highlight key projects with detailed descriptions
+- **Star Background**: Animated starfield effect for visual appeal
+- **Contact Form**: Easy way to get in touch
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech Stack
 
-## Deployment
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Components**: Custom React components
+- **Deployment**: Vercel
 
-Your project is live at:
+## Installation
 
-**[https://vercel.com/ketans-projects-2523f2ac/v0-minimalist-portfolio](https://vercel.com/ketans-projects-2523f2ac/v0-minimalist-portfolio)**
+1. Clone the repository:
 
-## Build your app
+   ```bash
+   git clone https://github.com/km322/km322.github.io.git
+   cd km322.github.io
+   ```
 
-Continue building your app on:
+2. Install dependencies:
 
-**[https://v0.app/chat/UiamtTC1XRT](https://v0.app/chat/UiamtTC1XRT)**
+   ```bash
+   pnpm install
+   ```
 
-## How It Works
+3. Run the development server:
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+   ```bash
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Build and Deployment
+
+To build the project for production:
+
+```bash
+pnpm build
+```
+
+The project is automatically deployed to Vercel on pushes to the main branch.
+
+## Project Structure
+
+- `app/`: Next.js app directory with pages and layout
+- `components/`: Reusable React components
+- `lib/`: Utility functions and data
+- `public/`: Static assets
+- `styles/`: Global styles
+
+## Contributing
+
+This is a personal portfolio project. For suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
