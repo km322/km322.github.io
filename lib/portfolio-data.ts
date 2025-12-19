@@ -88,6 +88,7 @@ export const resumeData = {
       period: "June 2025 – Present",
       description:
         "Built AI-driven solutions in warehouse operations to help teams save time, reduce costs, and gain actionable insights.",
+      skills: ["Python", "FastAPI", "AWS", "Docker"],
     },
     {
       title:
@@ -96,6 +97,7 @@ export const resumeData = {
       link: "https://talmolab.org/members/ketan-mittal.html",
       description:
         "Contributed to neuroscience research using computer vision and machine learning to enable early detection of ALS biomarkers in mice.",
+      skills: ["Python", "FastAPI", "AWS", "Docker"],
     },
     {
       title: "Triton Software Engineering - Engineering Manager",
@@ -103,6 +105,7 @@ export const resumeData = {
       link: "https://tritonse.github.io/about/",
       description:
         "Led a team building software solutions for nonprofit organizations to drive real-world impact and community engagement.",
+      skills: ["Python", "FastAPI", "AWS", "Docker"],
     },
     {
       title: "Data Science Student Society - Project Director",
@@ -110,18 +113,21 @@ export const resumeData = {
       link: "https://www.ds3atucsd.com/board",
       description:
         "Oversaw quarterly AI and data science projects, guiding a 60-member team to deliver initiatives with tangible real-world outcomes.",
+      skills: ["Python", "FastAPI", "AWS", "Docker"],
     },
     {
       title: "Humana - Enterprise AI Intern",
       period: "May 2024 – May 2025",
       description:
         "Worked on enterprise AI initiatives to enhance customer service through advanced machine learning and NLP applications.",
+      skills: ["Python", "FastAPI", "AWS", "Docker"],
     },
     {
       title: "Halıcıoğlu Data Science Institute - Instructional Assistant",
       period: "December 2024 – March 2025",
       description:
         "Led office hours for DSC 40B (Theoretical Foundations of Data Science II), teaching algorithms and data structures to support student learning in data science.",
+      skills: ["Python", "FastAPI", "AWS", "Docker"],
     },
   ],
   languages: [
@@ -133,58 +139,65 @@ export const resumeData = {
     { name: "R", level: 70 },
     { name: "C++/C", level: 25 },
   ],
+  certifications: [
+    {
+      title: "AWS Certified Solutions Architect",
+      date: "December 2024",
+      link: "https://aws.amazon.com/certification/",
+    },
+    {
+      title: "Google Data Analytics Certificate",
+      date: "June 2024",
+      link: "https://www.coursera.org/professional-certificates/google-data-analytics",
+    },
+    {
+      title: "Deep Learning Specialization",
+      date: "March 2024",
+      link: "https://www.coursera.org/specializations/deep-learning",
+    },
+  ],
 };
 
 export const portfolioData = {
   projects: [
     {
-      title: "E-Commerce Platform",
+      title: "UCSD Health",
       image: "/modern-ecommerce-website.png",
-      description: "Full-stack e-commerce solution with payment integration",
+      tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/ecommerce",
     },
     {
-      title: "Task Management App",
-      category: "applications",
+      title: "Parkinsons",
       image: "/task-management-interface.png",
-      description: "Collaborative task manager with real-time updates",
-      tech: ["React", "Firebase", "TypeScript"],
+      tech: ["", "", "D3.js"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/taskmanager",
     },
     {
-      title: "Portfolio Website",
-      category: "web design",
+      title: "Pyches",
       image: "/minimalist-portfolio-design.jpg",
-      description: "Modern portfolio design for creative professionals",
       tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/portfolio",
     },
     {
-      title: "Social Media Dashboard",
-      category: "web development",
+      title: "CRED",
       image: "/analytics-dashboard.png",
-      description: "Analytics dashboard with data visualization",
       tech: ["React", "D3.js", "Express"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/dashboard",
     },
     {
-      title: "Mobile Banking App",
-      category: "applications",
+      title: "Autonomous Vehicle Driving Simulation ",
       image: "/banking-app-interface.png",
-      description: "Secure mobile banking application",
       tech: ["React Native", "Node.js", "MongoDB"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/banking",
     },
     {
-      title: "Restaurant Website",
-      category: "web design",
+      title: "Stackbot",
       image: "/restaurant-website-design.png",
-      description: "Elegant restaurant website with online ordering",
       tech: ["Next.js", "Sanity CMS", "Stripe"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/restaurant",

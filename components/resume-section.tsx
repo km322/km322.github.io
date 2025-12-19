@@ -1,4 +1,4 @@
-import { BookOpen, Briefcase } from "lucide-react";
+import { BookOpen, Briefcase, BadgeCheck } from "lucide-react";
 import { resumeData } from "@/lib/portfolio-data";
 
 interface ResumeSectionProps {
@@ -36,7 +36,10 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               <p className="text-xs md:text-sm text-accent mb-2">
                 {item.period}
               </p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }} />
+              <p
+                className="text-xs md:text-sm text-muted-foreground leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              />
             </div>
           ))}
         </div>
@@ -50,6 +53,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
             Experience
           </h3>
         </div>
+
         <div className="space-y-4">
           {data.experience.map((item, index) => (
             <div
@@ -57,50 +61,80 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               className="relative pl-5 md:pl-6 pb-6 border-l-2 border-border last:pb-0"
             >
               <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent" />
-              {item.link ? (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base md:text-lg font-semibold text-foreground hover:text-accent transition-colors cursor-pointer mb-2 underline decoration-muted-foreground/75 hover:decoration-accent"
-                >
-                  {item.title}
-                </a>
-              ) : (
-                <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
-                  {item.title}
-                </h4>
-              )}
-              <p className="text-xs md:text-sm text-accent mb-2">
-                {item.period}
-              </p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }} />
+
+              {/* Title + Skills row */}
+              <div className="flex flex-col gap-1">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  {/* Title */}
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base md:text-lg font-semibold text-foreground hover:text-accent transition-colors underline decoration-muted-foreground/75 hover:decoration-accent"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    <h4 className="text-base md:text-lg font-semibold text-foreground">
+                      {item.title}
+                    </h4>
+                  )}
+
+                  {/* Skills aligned next to title */}
+                  {item.skills && item.skills.length > 0 && (
+                    <div className="flex flex-wrap gap-1 md:gap-2 justify-end">
+                      {item.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="px-2 py-1 bg-accent/15 text-foreground text-xs font-medium rounded-md border border-accent"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Period */}
+                <p className="text-xs md:text-sm text-accent">{item.period}</p>
+              </div>
+
+              {/* Description */}
+              <p
+                className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              />
             </div>
           ))}
         </div>
       </div>
 
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-          Languages
-        </h3>
-        <div className="space-y-5 md:space-y-4">
-          {data.languages.map((language, index) => (
-            <div key={index}>
-              <div className="flex justify-between mb-2">
-                <span className="text-xs md:text-sm font-medium text-foreground">
-                  {language.name}
-                </span>
-                <span className="text-xs md:text-sm text-muted-foreground">
-                  {language.level}%
-                </span>
-              </div>
-              <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-accent rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: `${language.level}%` }}
-                />
-              </div>
+        <div className="flex items-center gap-2 md:gap-3 mb-6">
+          <BadgeCheck className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+          <h3 className="text-xl md:text-2xl font-bold text-foreground">
+            Certifications
+          </h3>
+        </div>
+        <div className="space-y-3">
+          {data.certifications.map((cert, index) => (
+            <div key={index} className="flex justify-between items-center">
+              <h4 className="text-sm md:text-base font-medium text-foreground">
+                {cert.link ? (
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-accent transition-colors"
+                  >
+                    {cert.title}
+                  </a>
+                ) : (
+                  cert.title
+                )}
+              </h4>
+              <p className="text-xs md:text-sm text-accent ">{cert.date}</p>
             </div>
           ))}
         </div>
