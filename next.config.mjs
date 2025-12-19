@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
-    unoptimized: true,
+    // Removed unoptimized: true to enable image optimization
   },
- 
-}
+};
 
-export default nextConfig
+export default nextConfig;
