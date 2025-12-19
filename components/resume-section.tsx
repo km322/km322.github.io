@@ -87,7 +87,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                       {item.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-2 py-1 bg-accent/15 text-foreground text-xs font-medium rounded-md border border-accent"
+                          className="px-2 py-1 bg-accent/5 text-foreground text-xs font-medium rounded-md border border-accent/5"
                         >
                           {skill}
                         </span>
