@@ -23,12 +23,12 @@ export function PortfolioSection({
         {data.projects.map((project, index) => (
           <div key={index} className="space-y-3">
             <div className="group relative bg-secondary rounded-xl md:rounded-2xl border border-border overflow-hidden hover:border-accent transition-all duration-300 hover:shadow-xl hover:shadow-accent/10">
-              <div className="aspect-[4/3] overflow-hidden bg-background">
+              <div className="aspect-[4/3] overflow-hidden bg-background relative">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
 
