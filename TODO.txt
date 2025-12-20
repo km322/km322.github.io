@@ -1,9 +1,0 @@
-- Finish up website
-    - Favicons
-- Host on cloudflare
-- Enable DNS and stuff
-- Add Robots.txt
-- Buy a domain
-- Update Resume, Linkedin, Github
-- Make km322.github.io redirect to new url
-- Optimize
