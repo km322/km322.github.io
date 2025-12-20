@@ -26,7 +26,7 @@ export function StarBackground() {
     const STAR_SIZE = 1;
     const STAR_MIN_SCALE = 0.3;
     const OVERFLOW_THRESHOLD = 50;
-    const STAR_COUNT = 150;
+    const STAR_COUNT = 75;
 
     let scale = window.devicePixelRatio || 1;
     let width = window.innerWidth * scale;
@@ -38,7 +38,7 @@ export function StarBackground() {
     let stars: Array<{ x: number; y: number; z: number }> = [];
     let pointerX: number | null = null;
     let pointerY: number | null = null;
-    const velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0003 };
+    const velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0001 };
 
     let animationFrameId: number;
 
@@ -134,7 +134,7 @@ export function StarBackground() {
         context.beginPath();
         context.arc(star.x, star.y, STAR_SIZE * star.z * scale, 0, Math.PI * 2);
         context.fillStyle = starColor;
-        context.globalAlpha = Math.min(1, 0.9 + 0.4 * star.z);
+        context.globalAlpha = Math.min(1, 0.6 + 0.3 * star.z);
         context.fill();
       });
     }
