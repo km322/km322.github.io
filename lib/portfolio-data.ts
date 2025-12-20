@@ -88,16 +88,15 @@ export const resumeData = {
       period: "June 2025 – Present",
       description:
         "Built AI-driven solutions in warehouse operations to help teams save time, reduce costs, and gain actionable insights.",
-      skills: ["Python", "FastAPI", "AWS", "Docker"],
+      skills: ["LLM's", "Microsoft Power Platform", "CI/CD"],
     },
     {
-      title:
-        "Talmo Lab at the SALK Institute - Computer Vision Undergraduate Researcher",
+      title: "Talmo Lab at the SALK Institute - Undergraduate Researcher",
       period: "March 2025 – Present",
       link: "https://talmolab.org/members/ketan-mittal.html",
       description:
         "Contributed to neuroscience research using computer vision and machine learning to enable early detection of ALS biomarkers in mice.",
-      skills: ["Python", "FastAPI", "AWS", "Docker"],
+      skills: ["Computer Vision", "Machine Learning"],
     },
     {
       title: "Triton Software Engineering - Engineering Manager",
@@ -105,7 +104,7 @@ export const resumeData = {
       link: "https://tritonse.github.io/about/",
       description:
         "Led a team building software solutions for nonprofit organizations to drive real-world impact and community engagement.",
-      skills: ["Python", "FastAPI", "AWS", "Docker"],
+      skills: ["System Design", "Full-Stack Development"],
     },
     {
       title: "Data Science Student Society - Project Director",
@@ -113,47 +112,38 @@ export const resumeData = {
       link: "https://www.ds3atucsd.com/board",
       description:
         "Oversaw quarterly AI and data science projects, guiding a 60-member team to deliver initiatives with tangible real-world outcomes.",
-      skills: ["Python", "FastAPI", "AWS", "Docker"],
+      skills: ["Data Science", "Model Development"],
     },
     {
       title: "Humana - Enterprise AI Intern",
       period: "May 2024 – May 2025",
       description:
         "Worked on enterprise AI initiatives to enhance customer service through advanced machine learning and NLP applications.",
-      skills: ["Python", "FastAPI", "AWS", "Docker"],
+      skills: ["Kubernetes", "Docker", "FastAPI", "Azure", "CI/CD"],
     },
     {
       title: "Halıcıoğlu Data Science Institute - Instructional Assistant",
       period: "December 2024 – March 2025",
       description:
         "Led office hours for DSC 40B (Theoretical Foundations of Data Science II), teaching algorithms and data structures to support student learning in data science.",
-      skills: ["Python", "FastAPI", "AWS", "Docker"],
+      skills: ["Algorithms", "Data Structures", "Python"],
     },
-  ],
-  languages: [
-    { name: "Python", level: 95 },
-    { name: "SQL", level: 90 },
-    { name: "Java", level: 85 },
-    { name: "TypeScript", level: 95 },
-    { name: "JavaScript", level: 90 },
-    { name: "R", level: 70 },
-    { name: "C++/C", level: 25 },
   ],
   certifications: [
     {
-      title: "AWS Certified Solutions Architect",
-      date: "December 2024",
-      link: "https://aws.amazon.com/certification/",
+      title: "Microsoft: Azure AI Fundamentals ",
+      date: "July 2023",
+      link: "https://learn.microsoft.com/api/credentials/share/en-us/KetanMittal-0702/A41358EDFF476BD7?sharingId=B628A6A8C8A12531",
     },
     {
-      title: "Google Data Analytics Certificate",
-      date: "June 2024",
-      link: "https://www.coursera.org/professional-certificates/google-data-analytics",
+      title: "Microsoft: Azure Fundamentals",
+      date: "June 2023",
+      link: "https://learn.microsoft.com/api/credentials/share/en-us/KetanMittal-0702/BF21D89F0A14CDF7?sharingId=B628A6A8C8A12531",
     },
     {
-      title: "Deep Learning Specialization",
-      date: "March 2024",
-      link: "https://www.coursera.org/specializations/deep-learning",
+      title: "IBM Data Science Specialization",
+      date: "July 2021",
+      link: "https://coursera.org/share/6caa4de5f56ec99e437a043eb54cd4e4",
     },
   ],
 };
@@ -161,46 +151,52 @@ export const resumeData = {
 export const portfolioData = {
   projects: [
     {
-      title: "UCSD Health",
-      image: "/modern-ecommerce-website.png",
+      title: "UCSD Health Gamified Website",
+      image: "/TimmyOk.svg",
       tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/johndoe/ecommerce",
+      liveUrl: "https://www.ridereadysd.com",
+      githubUrl: "https://github.com/TritonSE/UCSD-Health-Gamified-Website",
     },
     {
-      title: "Parkinsons",
+      title: "Keys of Parkinsons",
       image: "/task-management-interface.png",
-      tech: ["", "", "D3.js"],
+      tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/taskmanager",
     },
     {
-      title: "Pyches",
-      image: "/minimalist-portfolio-design.jpg",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/johndoe/portfolio",
-    },
-    {
-      title: "CRED",
-      image: "/analytics-dashboard.png",
-      tech: ["React", "D3.js", "Express"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/johndoe/dashboard",
-    },
-    {
-      title: "Autonomous Vehicle Driving Simulation ",
+      title: "Autonomous Vehicle Driving Simulation",
       image: "/banking-app-interface.png",
-      tech: ["React Native", "Node.js", "MongoDB"],
+      tech: ["Tensorflow", "Deep Q-learning", "Behavioral Cloning"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/johndoe/banking",
     },
     {
-      title: "Stackbot",
+      title: "DS3-Tesla-Autonomous-Car",
       image: "/restaurant-website-design.png",
-      tech: ["Next.js", "Sanity CMS", "Stripe"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/johndoe/restaurant",
+      tech: ["Computer Vision", "CNNs", "Transfer Learning"],
+      liveUrl: "https://github.com/km322/DS3-Tesla-Autonomous-Car",
+      githubUrl: "https://github.com/km322/DS3-Tesla-Autonomous-Car",
+    },
+    {
+      title: "Psyches Of Color App",
+      image: "/POC.png",
+      tech: [
+        "MongoDB",
+        "Express",
+        "React Native",
+        "Node.js",
+        "Firebase",
+      ],
+      liveUrl: "https://psyches-of-color.vercel.app/login",
+      githubUrl: "https://github.com/TritonSE/Psyches-Of-Color-App",
+    },
+    {
+      title: "CRED",
+      image: "/CRED.avif",
+      tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
+      liveUrl: "https://github.com/TritonSE/CRED",
+      githubUrl: "https://github.com/TritonSE/CRED",
     },
   ],
 };
