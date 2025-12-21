@@ -175,7 +175,7 @@ export const portfolioData = {
       title: "DS3-Tesla-Autonomous-Car",
       image: "/segmap.jpg",
       tech: ["Computer Vision", "CNNs", "Transfer Learning"],
-      liveUrl: "https://github.com/km322/DS3-Tesla-Autonomous-Car",
+      liveUrl: "https://docs.google.com/presentation/d/1cTLvSWOP_hWIClGKiR8-4ImFHyiH_Afn3YCRU02iWgI/edit?usp=sharing",
       githubUrl: "https://github.com/km322/DS3-Tesla-Autonomous-Car",
     },
     {
