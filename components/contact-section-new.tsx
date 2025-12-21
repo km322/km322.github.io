@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { Linkedin, Mail, Phone, Send } from "lucide-react"
+import { Send } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import { contactData } from "@/lib/portfolio-data"
 import emailjs from '@emailjs/browser'
