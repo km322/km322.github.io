@@ -66,8 +66,9 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
           Professional Experience
         </h3>
-        <div className="relative overflow-hidden py-4">
-          <div className="flex gap-4 md:gap-6 animate-marquee-slow">
+
+        <div className="relative py-4 overflow-x-auto overflow-y-hidden scrollbar-hide touch-pan-x overscroll-x-contain">
+          <div className="flex gap-4 md:gap-6 animate-marquee-slow hover:[animation-play-state:paused]">
             {[...data.clients, ...data.clients].map((client, index) => (
               <a
                 key={index}
