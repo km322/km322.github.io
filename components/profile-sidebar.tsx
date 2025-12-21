@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { profileData } from "@/lib/portfolio-data";
 import Image from "next/image";
 interface ProfileSidebarProps {
@@ -48,23 +48,6 @@ export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
               className="text-sm text-foreground hover:text-accent transition-colors break-all"
             >
               {data.email}
-            </a>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-            <Phone className="w-5 h-5 text-accent" />
-          </div>
-          <div className="flex-1">
-            <p className="text-xs text-muted-foreground uppercase mb-1">
-              Phone
-            </p>
-            <a
-              href={`tel:${data.phone.replace(/\s/g, "")}`}
-              className="text-sm text-foreground hover:text-accent transition-colors"
-            >
-              {data.phone}
             </a>
           </div>
         </div>
