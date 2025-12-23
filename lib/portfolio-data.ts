@@ -78,8 +78,10 @@ export const resumeData = {
     {
       title: "University of California, San Diego",
       period: "September 2023 – March 2027",
-      description:
-        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science<br>GPA: <strong>3.97</strong>/4.0 | TRELS Scholar | 7x Provost Honors",
+      description: `Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science<br>
+   GPA: <strong>3.97</strong>/4.0 |
+   <a href="https://trels.ucsd.edu" target="_blank" class="text-accent underline"> TRELS Scholar </a> |
+   7x Provost Honors`,
     },
   ],
   experience: [
@@ -168,26 +170,23 @@ export const portfolioData = {
       title: "Autonomous Vehicle Driving Simulation",
       image: "/sim.png",
       tech: ["Tensorflow", "Deep Q-learning", "Behavioral Cloning"],
-      liveUrl: "https://colab.research.google.com/drive/1UQZ7tB-CtjtN471oyWo7f1jj38XH3c9o",
-      githubUrl: "https://colab.research.google.com/drive/10Fw7OfYtMVdfrMwe2GsK0K-JmTCMlyqK",
+      liveUrl:
+        "https://colab.research.google.com/drive/1UQZ7tB-CtjtN471oyWo7f1jj38XH3c9o",
+      githubUrl:
+        "https://colab.research.google.com/drive/10Fw7OfYtMVdfrMwe2GsK0K-JmTCMlyqK",
     },
     {
       title: "DS3-Tesla-Autonomous-Car",
       image: "/segmap.jpg",
       tech: ["Computer Vision", "CNNs", "Transfer Learning"],
-      liveUrl: "https://docs.google.com/presentation/d/1cTLvSWOP_hWIClGKiR8-4ImFHyiH_Afn3YCRU02iWgI/edit?usp=sharing",
+      liveUrl:
+        "https://docs.google.com/presentation/d/1cTLvSWOP_hWIClGKiR8-4ImFHyiH_Afn3YCRU02iWgI/edit?usp=sharing",
       githubUrl: "https://github.com/km322/DS3-Tesla-Autonomous-Car",
     },
     {
       title: "Psyches Of Color App",
       image: "/POC.png",
-      tech: [
-        "MongoDB",
-        "Express",
-        "React Native",
-        "Node.js",
-        "Firebase",
-      ],
+      tech: ["MongoDB", "Express", "React Native", "Node.js", "Firebase"],
       liveUrl: "https://psyches-of-color.vercel.app/login",
       githubUrl: "https://github.com/TritonSE/Psyches-Of-Color-App",
     },
