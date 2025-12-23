@@ -79,7 +79,7 @@ export const resumeData = {
       title: "University of California, San Diego",
       period: "September 2023 – March 2027",
       description:
-        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science<br>GPA: <strong>3.97</strong>/4.0",
+        "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science<br>GPA: <strong>3.97</strong>/4.0 TRELS Scholar | 7x Provost Honors",
     },
   ],
   experience: [
