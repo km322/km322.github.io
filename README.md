@@ -2,6 +2,8 @@
 
 A modern, minimalist portfolio website showcasing projects, skills, and experience. Built with Next.js and designed for a clean, responsive user experience.
 
+Found here: https://ketan-mittal.com
+
 ## Features
 
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
