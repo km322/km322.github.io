@@ -36,6 +36,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
           {data.services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
+            if (!IconComponent) return null;
             return (
               <div
                 key={index}
@@ -67,7 +68,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
           Professional Experience
         </h3>
 
-        <div className="relative py-4 overflow-x-auto overflow-y-hidden scrollbar-hide touch-pan-x overscroll-x-contain">
+        <div className="relative py-4 overflow-hidden">
           <div className="flex gap-4 md:gap-6 animate-marquee-slow hover:[animation-play-state:paused]">
             {[...data.clients, ...data.clients].map((client, index) => (
               <a
@@ -82,6 +83,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                   alt={client.name}
                   width={110}
                   height={46}
+                  sizes="(max-width: 768px) 128px, 160px"
                   className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </a>
