@@ -24,11 +24,35 @@ declare global {
       reset: (widgetId: string) => void
       remove: (widgetId: string) => void
     }
+    __turnstileScriptLoaded?: boolean
   }
 }
 
+// Load the Turnstile script once globally (survives component re-mounts)
+function loadTurnstileScript(): Promise<void> {
+  if (window.__turnstileScriptLoaded && window.turnstile) {
+    return Promise.resolve()
+  }
+  if (document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+    return new Promise((resolve) => {
+      const check = () => {
+        if (window.turnstile) { window.__turnstileScriptLoaded = true; resolve() }
+        else setTimeout(check, 50)
+      }
+      check()
+    })
+  }
+  return new Promise((resolve) => {
+    const script = document.createElement('script')
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+    script.async = true
+    script.onload = () => { window.__turnstileScriptLoaded = true; resolve() }
+    document.head.appendChild(script)
+  })
+}
+
 export function ContactSection({ data = contactData }: ContactSectionProps) {
-  const [formData, setFormData] = useState({  
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
@@ -36,48 +60,46 @@ export function ContactSection({ data = contactData }: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [turnstileToken, setTurnstileToken] = useState<string>('')
-  const [turnstileLoaded, setTurnstileLoaded] = useState(false)
   const turnstileRef = useRef<HTMLDivElement>(null)
   const widgetIdRef = useRef<string>('')
 
   useEffect(() => {
-    // Load Turnstile script
-    const script = document.createElement('script')
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
-    script.async = true
-    script.defer = true
-    script.onload = () => setTurnstileLoaded(true)
-    document.body.appendChild(script)
+    let cancelled = false
 
-    return () => {
-      // Cleanup
+    loadTurnstileScript().then(() => {
+      if (cancelled || !turnstileRef.current) return
+      // Clean up any previous widget in this container
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = ''
       }
-      if (script.parentNode) {
-        script.parentNode.removeChild(script)
+      // Defer render to next frame so it doesn't block the UI
+      requestAnimationFrame(() => {
+        if (cancelled || !turnstileRef.current) return
+        widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          callback: (token: string) => {
+            if (!cancelled) setTurnstileToken(token)
+          },
+          'error-callback': () => {
+            if (!cancelled) setTurnstileToken('')
+          },
+          'expired-callback': () => {
+            if (!cancelled) setTurnstileToken('')
+          },
+          theme: 'auto',
+        })
+      })
+    })
+
+    return () => {
+      cancelled = true
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = ''
       }
     }
   }, [])
-
-  useEffect(() => {
-    if (turnstileLoaded && turnstileRef.current && !widgetIdRef.current) {
-      // Render Turnstile widget
-      widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
-        callback: (token: string) => {
-          setTurnstileToken(token)
-        },
-        'error-callback': () => {
-          setTurnstileToken('')
-        },
-        'expired-callback': () => {
-          setTurnstileToken('')
-        },
-        theme: 'auto',
-      })
-    }
-  }, [turnstileLoaded])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
