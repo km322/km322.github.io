@@ -162,7 +162,6 @@ export function StarBackground() {
 
     function onTouchMove(e: TouchEvent) {
       movePointer(e.touches[0].clientX, e.touches[0].clientY, true);
-      e.preventDefault();
     }
 
     function onMouseLeave() {
