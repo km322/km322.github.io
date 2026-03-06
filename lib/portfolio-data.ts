@@ -160,11 +160,11 @@ export const portfolioData = {
       githubUrl: "https://github.com/TritonSE/UCSD-Health-Gamified-Website",
     },
     {
-      title: "Keys of Parkinsons",
-      image: "/keys_parkinsons.mp4",
-      tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
-      liveUrl: "https://k1mittal.github.io/Keys-of-Parkinsons/",
-      githubUrl: "https://github.com/k1mittal/Keys-of-Parkinsons",
+      title: "Decoding Social Intent from Neural Oscillations",
+      image: "/sleap_spatial.mp4",
+      tech: ["Signal Processing", "Computational Neuroscience"],
+      liveUrl: "https://kbian.org/neural_signal/",
+      githubUrl: "https://github.com/KevinBian107/neural_signal",
     },
     {
       title: "Autonomous Vehicle Driving Simulation",
@@ -198,18 +198,27 @@ export const portfolioData = {
       githubUrl: "https://github.com/TritonSE/CRED",
     },
     {
-      title: "Decoding Social Intent from Neural Oscillations",
-      image: "/sleap_spatial.mp4",
-      tech: ["Signal Processing", "Computational Neuroscience",],
-      liveUrl: "https://kbian.org/neural_signal/",
-      githubUrl: "https://github.com/KevinBian107/neural_signal",
+      title: "Keys of Parkinsons",
+      image: "/keys_parkinsons.mp4",
+      tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
+      liveUrl: "https://k1mittal.github.io/Keys-of-Parkinsons/",
+      githubUrl: "https://github.com/k1mittal/Keys-of-Parkinsons",
     },
     {
       title: "Mental Health and the Diagnosis of Alzheimer’s Disease",
       image: "/UCI COSMOS Cluster 1 Research Poster.png",
       tech: ["R", "Statistical Analysis", "Data Visualization"],
-      liveUrl: "https://docs.google.com/presentation/d/17XLdT3ZqTwe6KmQzfVJV6h9QM_LW96QY3pDXJCJKSjc/edit?usp=sharing",
+      liveUrl:
+        "https://docs.google.com/presentation/d/17XLdT3ZqTwe6KmQzfVJV6h9QM_LW96QY3pDXJCJKSjc/edit?usp=sharing",
       githubUrl: "https://github.com/km322/cosmos-final-project",
+    },
+    {
+      title: "Anti-Refugee Sentiment Analysis",
+      image: "/Thumbnail.png",
+      tech: ["Sentiment Analysis", "Multi-layer Perceptron", "Word2Vec"],
+      liveUrl:
+        "https://colab.research.google.com/drive/1yPOGYJQ5mfs-J94SpO6bmSFHLnnWhgkY?usp=sharing",
+      githubUrl: "https://colab.research.google.com/drive/11eNVhpLSdz3bnSdE2O-s6sVL87fPqjvI?usp=sharing",
     },
   ],
 };
