@@ -161,14 +161,14 @@ export const portfolioData = {
     },
     {
       title: "Keys of Parkinsons",
-      image: "/keys.png",
+      image: "/keys_parkinsons.mp4",
       tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
       liveUrl: "https://k1mittal.github.io/Keys-of-Parkinsons/",
       githubUrl: "https://github.com/k1mittal/Keys-of-Parkinsons",
     },
     {
       title: "Autonomous Vehicle Driving Simulation",
-      image: "/sim.png",
+      image: "/CarBrr.mov",
       tech: ["Tensorflow", "Deep Q-learning", "Behavioral Cloning"],
       liveUrl:
         "https://colab.research.google.com/drive/1UQZ7tB-CtjtN471oyWo7f1jj38XH3c9o",
@@ -196,6 +196,20 @@ export const portfolioData = {
       tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
       liveUrl: "https://github.com/TritonSE/CRED",
       githubUrl: "https://github.com/TritonSE/CRED",
+    },
+    {
+      title: "Decoding Social Intent from Neural Oscillations",
+      image: "/sleap_spatial.mp4",
+      tech: ["Signal Processing", "Computational Neuroscience",],
+      liveUrl: "https://kbian.org/neural_signal/",
+      githubUrl: "https://github.com/KevinBian107/neural_signal",
+    },
+    {
+      title: "The Relationship Between Mental Health and the Diagnosis of Alzheimer’s Disease",
+      image: "/UCI COSMOS Cluster 1 Research Poster.png",
+      tech: ["R", "Statistical Analysis", "Data Visualization"],
+      liveUrl: "https://docs.google.com/presentation/d/17XLdT3ZqTwe6KmQzfVJV6h9QM_LW96QY3pDXJCJKSjc/edit?usp=sharing",
+      githubUrl: "https://github.com/km322/cosmos-final-project",
     },
   ],
 };
