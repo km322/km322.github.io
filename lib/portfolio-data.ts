@@ -90,7 +90,7 @@ export const resumeData = {
       period: "June 2025 – Present",
       description:
         "Built AI-driven solutions in warehouse operations to help teams save time, reduce costs, and gain actionable insights.",
-      skills: ["LLM's", "Microsoft Power Platform", "CI/CD"],
+      skills: ["LLMs", "Microsoft Power Platform", "CI/CD"],
     },
     {
       title: "Talmo Lab at the SALK Institute - Undergraduate Researcher",
@@ -133,7 +133,7 @@ export const resumeData = {
   ],
   certifications: [
     {
-      title: "Microsoft: Azure AI Fundamentals ",
+      title: "Microsoft: Azure AI Fundamentals",
       date: "July 2023",
       link: "https://learn.microsoft.com/api/credentials/share/en-us/KetanMittal-0702/A41358EDFF476BD7?sharingId=B628A6A8C8A12531",
     },
@@ -198,7 +198,7 @@ export const portfolioData = {
       githubUrl: "https://github.com/TritonSE/CRED",
     },
     {
-      title: "Keys of Parkinsons",
+      title: "Keys of Parkinson's",
       image: "/keys_parkinsons.mp4",
       tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
       liveUrl: "https://k1mittal.github.io/Keys-of-Parkinsons/",

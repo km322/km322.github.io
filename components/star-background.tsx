@@ -177,15 +177,6 @@ export function StarBackground() {
       canvas.height = height;
     }
 
-    const observer = new MutationObserver(() => {
-      render();
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
     generate();
     step();
 
@@ -196,7 +187,6 @@ export function StarBackground() {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      observer.disconnect();
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("mouseleave", onMouseLeave);
