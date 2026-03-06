@@ -1,15 +1,10 @@
 "use client"
 
-import type React from "react"
+import type { FormEvent } from "react"
 
 import { Send } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
-import { contactData } from "@/lib/portfolio-data"
 import emailjs from '@emailjs/browser'
-
-interface ContactSectionProps {
-  data?: typeof contactData
-}
 
 declare global {
   interface Window {
@@ -51,7 +46,7 @@ function loadTurnstileScript(): Promise<void> {
   })
 }
 
-export function ContactSection({ data = contactData }: ContactSectionProps) {
+export function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -101,7 +96,7 @@ export function ContactSection({ data = contactData }: ContactSectionProps) {
     }
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     
     if (!turnstileToken) {
@@ -133,29 +128,20 @@ export function ContactSection({ data = contactData }: ContactSectionProps) {
 
       setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
-      
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+
       // Reset Turnstile widget
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.reset(widgetIdRef.current)
         setTurnstileToken('')
       }
-      
-      // Reset success message after 5 seconds
+
+      // Reset status message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
-    } catch (error) {
-      console.error('EmailJS error:', error)
-      setSubmitStatus('error')
-      
-      // Reset Turnstile widget on error
-      if (widgetIdRef.current && window.turnstile) {
-        window.turnstile.reset(widgetIdRef.current)
-        setTurnstileToken('')
-      }
-      
-      // Reset error message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000)
-    } finally {
-      setIsSubmitting(false)
     }
   }
 

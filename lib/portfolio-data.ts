@@ -223,7 +223,3 @@ export const portfolioData = {
     },
   ],
 };
-
-export const contactData = {
-  email: "mittal.ketan1@gmail.com",
-};

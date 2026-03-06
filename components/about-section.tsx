@@ -21,6 +21,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
   const animationRef = useRef<number>(0);
   const isPausedRef = useRef(false);
   const accumulatorRef = useRef(0);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   const animate = useCallback(() => {
     const el = scrollRef.current;
@@ -43,16 +44,20 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
 
   useEffect(() => {
     animationRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationRef.current);
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
   }, [animate]);
 
   const handleInteractionStart = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     isPausedRef.current = true;
   };
 
   const handleInteractionEnd = () => {
     // Resume after a short delay so the user's scroll settles
-    setTimeout(() => {
+    resumeTimerRef.current = setTimeout(() => {
       isPausedRef.current = false;
     }, 2000);
   };

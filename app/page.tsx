@@ -7,7 +7,7 @@ import { AboutSection } from "@/components/about-section"
 import { ResumeSection } from "@/components/resume-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { ContactSection } from "@/components/contact-section"
-import { profileData, aboutData, resumeData, portfolioData, contactData } from "@/lib/portfolio-data"
+import { profileData, aboutData, resumeData, portfolioData } from "@/lib/portfolio-data"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Home() {
@@ -51,7 +51,7 @@ export default function Home() {
                 {activeSection === "about" && <AboutSection data={aboutData} />}
                 {activeSection === "resume" && <ResumeSection data={resumeData} />}
                 {activeSection === "projects" && <PortfolioSection data={portfolioData} />}
-                {activeSection === "contact" && <ContactSection data={contactData} />}
+                {activeSection === "contact" && <ContactSection />}
               </div>
             </main>
           </div>

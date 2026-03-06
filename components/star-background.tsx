@@ -12,8 +12,9 @@ export function StarBackground() {
     const ctx = canvasEl.getContext("2d");
     if (!ctx) return;
 
-    const canvas: HTMLCanvasElement = canvasEl;
-    const context: CanvasRenderingContext2D = ctx;
+    // Non-null aliases for use inside closures (null-checked above)
+    const canvas = canvasEl;
+    const context = ctx;
 
     const getStarColor = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -184,7 +185,7 @@ export function StarBackground() {
     step();
 
     window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
     window.addEventListener("mouseleave", onMouseLeave);
     window.addEventListener("resize", onResize);
 
