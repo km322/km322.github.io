@@ -205,7 +205,7 @@ export const portfolioData = {
       githubUrl: "https://github.com/KevinBian107/neural_signal",
     },
     {
-      title: "The Relationship Between Mental Health and the Diagnosis of Alzheimer’s Disease",
+      title: "Mental Health and the Diagnosis of Alzheimer’s Disease",
       image: "/UCI COSMOS Cluster 1 Research Poster.png",
       tech: ["R", "Statistical Analysis", "Data Visualization"],
       liveUrl: "https://docs.google.com/presentation/d/17XLdT3ZqTwe6KmQzfVJV6h9QM_LW96QY3pDXJCJKSjc/edit?usp=sharing",
