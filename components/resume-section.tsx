@@ -36,10 +36,27 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               <p className="text-xs md:text-sm text-accent mb-2">
                 {item.period}
               </p>
-              <p
-                className="text-xs md:text-sm text-muted-foreground leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: item.description }}
-              />
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                {item.description}
+              </p>
+              {item.highlights && (
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mt-1">
+                  {item.highlights.map((h, i) => (
+                    <span key={i}>
+                      {i > 0 && " | "}
+                      {h.link ? (
+                        <a href={h.link} target="_blank" rel="noopener noreferrer" className="text-accent underline">
+                          {h.text}
+                        </a>
+                      ) : h.bold ? (
+                        <strong>{h.text}</strong>
+                      ) : (
+                        h.text
+                      )}
+                    </span>
+                  ))}
+                </p>
+              )}
             </div>
           ))}
         </div>

@@ -77,10 +77,12 @@ export const resumeData = {
     {
       title: "University of California, San Diego",
       period: "September 2023 – March 2027",
-      description: `Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science<br>
-   GPA: <strong>3.97</strong>/4.0 |
-   <a href="https://trels.ucsd.edu" target="_blank" class="text-accent underline"> TRELS Scholar </a> |
-   7x Provost Honors`,
+      description: "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science",
+      highlights: [
+        { text: "GPA: 3.97/4.0", bold: true },
+        { text: "TRELS Scholar", link: "https://trels.ucsd.edu" },
+        { text: "7x Provost Honors" },
+      ],
     },
   ],
   experience: [
@@ -167,7 +169,7 @@ export const portfolioData = {
     },
     {
       title: "Autonomous Vehicle Driving Simulation",
-      image: "/CarBrr.mov",
+      image: "/CarBrr.mp4",
       tech: ["Tensorflow", "Deep Q-learning", "Behavioral Cloning"],
       liveUrl:
         "https://colab.research.google.com/drive/1UQZ7tB-CtjtN471oyWo7f1jj38XH3c9o",
