@@ -3,7 +3,6 @@ export const profileData = {
   title: "Data Scientist | Machine Learning & AI",
   avatar: "/Ketan_Mittal_1154170.jpg",
   email: "mittal.ketan1@gmail.com",
-  phone: "925-997-3105",
   github: "https://github.com/km322",
   linkedin: "https://linkedin.com/in/ketan-mittal322",
 };
@@ -225,5 +224,4 @@ export const portfolioData = {
 
 export const contactData = {
   email: "mittal.ketan1@gmail.com",
-  phone: "925-997-3105",
 };

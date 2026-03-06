@@ -55,7 +55,7 @@ export function PortfolioSection({
                     />
                   ) : (
                     <Image
-                      src={project.image || "/placeholder.svg"}
+                      src={project.image}
                       alt={project.title}
                       fill
                       className="object-contain group-hover:scale-110 transition-transform duration-500"

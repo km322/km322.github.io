@@ -129,7 +129,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
               className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90 hover:opacity-100"
             >
               <Image
-                src={client.logo || "/placeholder.svg"}
+                src={client.logo}
                 alt={client.name}
                 width={110}
                 height={46}
