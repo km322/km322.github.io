@@ -6,11 +6,14 @@ export function StarBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current!;
-    if (!canvas) return;
+    const canvasEl = canvasRef.current;
+    if (!canvasEl) return;
 
-    const context = canvas.getContext("2d")!;
-    if (!context) return;
+    const ctx = canvasEl.getContext("2d");
+    if (!ctx) return;
+
+    const canvas: HTMLCanvasElement = canvasEl;
+    const context: CanvasRenderingContext2D = ctx;
 
     const getStarColor = () => {
       const isDark = document.documentElement.classList.contains("dark");

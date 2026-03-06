@@ -15,7 +15,7 @@ Found here: https://ketan-mittal.com
 
 ## Tech Stack
 
-- **Framework**: Next.js 14
+- **Framework**: Next.js 16
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Components**: Custom React components
@@ -56,11 +56,10 @@ The project is automatically deployed to Vercel on pushes to the main branch.
 
 ## Project Structure
 
-- `app/`: Next.js app directory with pages and layout
-- `components/`: Reusable React components
-- `lib/`: Utility functions and data
+- `app/`: Next.js app directory with pages, layout, and global styles
+- `components/`: React components
+- `lib/`: Data and utilities
 - `public/`: Static assets
-- `styles/`: Global styles
 
 ## Contributing
 

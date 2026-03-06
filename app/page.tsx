@@ -6,7 +6,7 @@ import { ProfileSidebar } from "@/components/profile-sidebar"
 import { AboutSection } from "@/components/about-section"
 import { ResumeSection } from "@/components/resume-section"
 import { PortfolioSection } from "@/components/portfolio-section"
-import { ContactSection } from "@/components/contact-section-new"
+import { ContactSection } from "@/components/contact-section"
 import { profileData, aboutData, resumeData, portfolioData, contactData } from "@/lib/portfolio-data"
 import { ThemeToggle } from "@/components/theme-toggle"
 

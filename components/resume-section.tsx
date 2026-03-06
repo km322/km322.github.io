@@ -101,10 +101,9 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               </div>
 
               {/* Description */}
-              <p
-                className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: item.description }}
-              />
+              <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
