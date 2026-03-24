@@ -132,6 +132,15 @@ export const resumeData = {
       skills: ["Algorithms", "Data Structures", "Python"],
     },
   ],
+  openSource: [
+    {
+      project: "LangChain DeepAgents",
+      description:
+        "Contributing to an open-source framework for building deep research agents powered by LangChain. Submitted first PR to improve the project.",
+      githubUrl: "https://github.com/langchain-ai/deepagents",
+      skills: ["LangChain", "LLMs", "Python"],
+    },
+  ],
   certifications: [
     {
       title: "Microsoft: Azure AI Fundamentals",

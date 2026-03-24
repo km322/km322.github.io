@@ -1,4 +1,4 @@
-import { BookOpen, Briefcase, BadgeCheck } from "lucide-react";
+import { BookOpen, Briefcase, BadgeCheck, GitPullRequest } from "lucide-react";
 import { resumeData } from "@/lib/portfolio-data";
 
 interface ResumeSectionProps {
@@ -125,6 +125,46 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
           ))}
         </div>
       </div>
+
+      {/* Open Source Contributions */}
+      {data.openSource && data.openSource.length > 0 && (
+        <div>
+          <div className="flex items-center gap-2 md:gap-3 mb-6">
+            <GitPullRequest className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+            <h3 className="text-xl md:text-2xl font-bold text-foreground">
+              Open Source Contributions
+            </h3>
+          </div>
+          <div className="space-y-3">
+            {data.openSource.map((item, index) => (
+              <div key={index} className="flex flex-wrap items-center justify-between gap-2">
+                <h4 className="text-sm md:text-base font-medium text-foreground">
+                  <a
+                    href={item.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-accent transition-colors"
+                  >
+                    {item.project}
+                  </a>
+                </h4>
+                {item.skills && item.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-1 md:gap-2">
+                    {item.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="px-2 py-1 bg-accent/5 text-foreground text-xs font-medium rounded-md border border-accent/5"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div>
         <div className="flex items-center gap-2 md:gap-3 mb-6">
