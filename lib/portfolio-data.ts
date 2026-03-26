@@ -134,6 +134,13 @@ export const resumeData = {
   ],
   openSource: [
     {
+      project: "SLEAP",
+      description:
+        "Contributing to an open-source framework for deep-learning based framework for multi-animal pose tracking.",
+      githubUrl: "https://github.com/talmolab/sleap",
+      skills: ["Computer Vision", "Deep Learning", "Python"],
+    },
+    {
       project: "LangChain DeepAgents",
       description:
         "Contributing to an open-source framework for building deep research agents powered by LangChain. Submitted first PR to improve the project.",
