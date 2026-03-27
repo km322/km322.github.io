@@ -112,7 +112,6 @@ export const resumeData = {
     {
       title: "Data Science Student Society - Project Director",
       period: "January 2024 – January 2026",
-      link: "https://www.ds3atucsd.com/board",
       description:
         "Oversaw quarterly AI and data science projects, guiding a 60-member team to deliver initiatives with tangible real-world outcomes.",
       skills: ["Data Science", "Model Development"],
