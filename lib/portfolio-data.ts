@@ -80,8 +80,8 @@ export const resumeData = {
       description: "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science",
       highlights: [
         { text: "GPA: 3.97/4.0", bold: true },
-        { text: "TRELS Scholar", link: "https://trels.ucsd.edu" },
-        { text: "7x Provost Honors" },
+        { text: "WI 2026 TRELS Scholar", link: "https://trels.ucsd.edu" },
+        { text: "8x Provost Honors" },
       ],
     },
   ],
