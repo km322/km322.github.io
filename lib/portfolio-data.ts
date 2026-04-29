@@ -94,6 +94,13 @@ export const resumeData = {
       skills: ["LLMs", "Microsoft Power Platform", "CI/CD"],
     },
     {
+      title: "Humana - Enterprise AI Intern",
+      period: "May 2024 – May 2025",
+      description:
+        "Worked on enterprise AI initiatives to enhance customer service through advanced machine learning and NLP applications.",
+      skills: ["Kubernetes", "Docker", "FastAPI", "Azure", "CI/CD"],
+    },
+    {
       title: "Talmo Lab at the SALK Institute - Undergraduate Researcher",
       period: "March 2025 – Present",
       link: "https://talmolab.org/members/ketan-mittal.html",
@@ -115,13 +122,6 @@ export const resumeData = {
       description:
         "Oversaw quarterly AI and data science projects, guiding a 60-member team to deliver initiatives with tangible real-world outcomes.",
       skills: ["Data Science", "Model Development"],
-    },
-    {
-      title: "Humana - Enterprise AI Intern",
-      period: "May 2024 – May 2025",
-      description:
-        "Worked on enterprise AI initiatives to enhance customer service through advanced machine learning and NLP applications.",
-      skills: ["Kubernetes", "Docker", "FastAPI", "Azure", "CI/CD"],
     },
     {
       title: "Halıcıoğlu Data Science Institute - Instructional Assistant",
