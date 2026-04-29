@@ -88,7 +88,7 @@ export const resumeData = {
   experience: [
     {
       title: "Resmed - Software Engineering Intern",
-      period: "June 2025 – Present",
+      period: "June 2025 – April 2026",
       description:
         "Built AI-driven solutions in warehouse operations to help teams save time, reduce costs, and gain actionable insights.",
       skills: ["LLMs", "Microsoft Power Platform", "CI/CD"],
