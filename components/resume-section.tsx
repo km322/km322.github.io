@@ -27,9 +27,8 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
           {data.education.map((item, index) => (
             <div
               key={index}
-              className="relative pl-5 md:pl-6 pb-6 border-l-2 border-border last:pb-0"
+              className="pb-6 last:pb-0"
             >
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent" />
               <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
                 {item.title}
               </h4>
@@ -75,9 +74,8 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
           {data.experience.map((item, index) => (
             <div
               key={index}
-              className="relative pl-5 md:pl-6 pb-6 border-l-2 border-border last:pb-0"
+              className="pb-6 last:pb-0"
             >
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent" />
 
               {/* Title + Skills row */}
               <div className="flex flex-col gap-1">
