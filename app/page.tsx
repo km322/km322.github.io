@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { StarBackground } from "@/components/star-background"
 import { ProfileSidebar } from "@/components/profile-sidebar"
 import { AboutSection } from "@/components/about-section"
 import { ResumeSection } from "@/components/resume-section"
@@ -15,10 +14,6 @@ export default function Home() {
 
   return (
     <>
-      <div className="fixed inset-0 bg-background/20 backdrop-blur-sm" style={{ zIndex: 1 }} />
-
-      <StarBackground />
-
       <div className="relative z-10 min-h-screen p-3 sm:p-4 md:p-6 lg:p-12">
         <div className="fixed top-4 right-4 md:top-6 md:right-6 z-50">
           <ThemeToggle />
