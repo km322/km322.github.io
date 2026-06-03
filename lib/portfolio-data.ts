@@ -40,6 +40,11 @@ export const aboutData = {
   ],
   clients: [
     {
+      name: "Apple",
+      logo: "/Apple_logo_black.svg",
+      website: "https://www.apple.com",
+    },
+    {
       name: "Resmed",
       logo: "/resmed.png",
       website: "https://www.resmed.com",
@@ -86,6 +91,13 @@ export const resumeData = {
     },
   ],
   experience: [
+    {
+      title: "Apple - Software Engineering Intern",
+      period: "June 2025 – September 2026",
+      description:
+        "Apple Ads Team",
+      skills: ["LLMs", "Agentic Systems", "CI/CD"],
+    },
     {
       title: "Resmed - Software Engineering Intern",
       period: "June 2025 – April 2026",
@@ -192,7 +204,21 @@ export const portfolioData = {
         "https://colab.research.google.com/drive/10Fw7OfYtMVdfrMwe2GsK0K-JmTCMlyqK",
     },
     {
-      title: "DS3-Tesla-Autonomous-Car",
+      title: "Keys of Parkinson's",
+      image: "/keys_parkinsons.mp4",
+      tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
+      liveUrl: "https://k1mittal.github.io/Keys-of-Parkinsons/",
+      githubUrl: "https://github.com/k1mittal/Keys-of-Parkinsons",
+    },
+    {
+      title: "CRED",
+      image: "/CRED.avif",
+      tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
+      liveUrl: "https://cred-opal.vercel.app",
+      githubUrl: "https://github.com/TritonSE/CRED",
+    },
+    {
+      title: "DS3-Tesla-Autonomous-Driving",
       image: "/segmap.jpg",
       tech: ["Computer Vision", "CNNs", "Transfer Learning"],
       liveUrl:
@@ -205,20 +231,6 @@ export const portfolioData = {
       tech: ["MongoDB", "Express", "React Native", "Node.js", "Firebase"],
       liveUrl: "https://psyches-of-color.vercel.app/login",
       githubUrl: "https://github.com/TritonSE/Psyches-Of-Color-App",
-    },
-    {
-      title: "CRED",
-      image: "/CRED.avif",
-      tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
-      liveUrl: "https://github.com/TritonSE/CRED",
-      githubUrl: "https://github.com/TritonSE/CRED",
-    },
-    {
-      title: "Keys of Parkinson's",
-      image: "/keys_parkinsons.mp4",
-      tech: ["D3.js", "Data Analysis", "Interactive Visualizations"],
-      liveUrl: "https://k1mittal.github.io/Keys-of-Parkinsons/",
-      githubUrl: "https://github.com/k1mittal/Keys-of-Parkinsons",
     },
     {
       title: "Mental Health and the Diagnosis of Alzheimer’s Disease",
