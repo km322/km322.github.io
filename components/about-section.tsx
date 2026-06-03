@@ -43,9 +43,37 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
   }, []);
 
   useEffect(() => {
-    animationRef.current = requestAnimationFrame(animate);
-    return () => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    const start = () => {
+      if (animationRef.current) return;
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    const stop = () => {
+      if (!animationRef.current) return;
       cancelAnimationFrame(animationRef.current);
+      animationRef.current = 0;
+    };
+
+    const sync = () => {
+      if (reducedMotion.matches || document.hidden) {
+        stop();
+      } else {
+        start();
+      }
+    };
+
+    sync();
+    document.addEventListener("visibilitychange", sync);
+    reducedMotion.addEventListener("change", sync);
+
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", sync);
+      reducedMotion.removeEventListener("change", sync);
       if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     };
   }, [animate]);
