@@ -42,6 +42,7 @@ export const aboutData = {
     {
       name: "Apple",
       logo: "/Apple_logo_black.svg",
+      logoDark: "/Apple_logo_white.png",
       website: "https://www.apple.com",
     },
     {

@@ -125,24 +125,37 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
           onTouchEnd={handleInteractionEnd}
           className="flex gap-4 md:gap-6 py-4 overflow-x-auto scrollbar-hide"
         >
-          {[...data.clients, ...data.clients].map((client, index) => (
-            <a
-              key={index}
-              href={client.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90 hover:opacity-100"
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={110}
-                height={46}
-                sizes="(max-width: 768px) 128px, 160px"
-                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </a>
-          ))}
+          {[...data.clients, ...data.clients].map((client, index) => {
+            const logoDark = "logoDark" in client ? (client as { logoDark?: string }).logoDark : undefined;
+            return (
+              <a
+                key={index}
+                href={client.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90 hover:opacity-100"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={110}
+                  height={46}
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className={`w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity ${logoDark ? "dark:hidden" : ""}`}
+                />
+                {logoDark && (
+                  <Image
+                    src={logoDark}
+                    alt={client.name}
+                    width={110}
+                    height={46}
+                    sizes="(max-width: 768px) 128px, 160px"
+                    className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity hidden dark:block"
+                  />
+                )}
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>
