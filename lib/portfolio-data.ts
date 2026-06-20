@@ -86,7 +86,7 @@ export const resumeData = {
       description: "Bachelor of Science in Data Science | Minor in Mathematics, Minor in Cognitive Science",
       highlights: [
         { text: "GPA: 3.97/4.0", bold: true },
-        { text: "WI 26' TRELS Scholar", link: "https://trels.ucsd.edu" },
+        { text: "WI '26 TRELS Scholar", link: "https://trels.ucsd.edu" },
         { text: "9x Provost Honors" },
       ],
     },
@@ -114,7 +114,7 @@ export const resumeData = {
       skills: ["Kubernetes", "Docker", "FastAPI", "Azure", "CI/CD"],
     },
     {
-      title: "Talmo Lab at the SALK Institute - Undergraduate Researcher",
+      title: "Talmo Lab at the Salk Institute - Undergraduate Researcher",
       period: "March 2025 – Present",
       link: "https://talmolab.org/members/ketan-mittal.html",
       description:
