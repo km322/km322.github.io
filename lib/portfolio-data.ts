@@ -96,7 +96,7 @@ export const resumeData = {
       title: "Apple - Software Engineering Intern",
       period: "June 2025 – September 2026",
       description:
-        "Apple Ads Team",
+        "Apple Ads Engineering Team",
       skills: ["LLMs", "Agentic Systems", "CI/CD"],
     },
     {
