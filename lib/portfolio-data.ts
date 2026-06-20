@@ -87,7 +87,7 @@ export const resumeData = {
       highlights: [
         { text: "GPA: 3.97/4.0", bold: true },
         { text: "WI 26' TRELS Scholar", link: "https://trels.ucsd.edu" },
-        { text: "8x Provost Honors" },
+        { text: "9x Provost Honors" },
       ],
     },
   ],
