@@ -213,7 +213,7 @@ export const portfolioData = {
     },
     {
       title: "CRED",
-      image: "/CRED.avif",
+      image: "/cred-logo.svg",
       tech: ["MongoDB", "Express", "React", "Node.js", "Firebase"],
       liveUrl: "https://cred-sd.vercel.app",
       githubUrl: "https://github.com/TritonSE/CRED",
