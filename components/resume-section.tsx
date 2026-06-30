@@ -141,7 +141,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                     href={item.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-accent transition-colors underline decoration-muted-foreground/75 hover:decoration-accent"
                   >
                     {item.project}
                   </a>
@@ -180,7 +180,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-accent transition-colors underline decoration-muted-foreground/75 hover:decoration-accent"
                   >
                     {cert.title}
                   </a>
@@ -188,7 +188,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                   cert.title
                 )}
               </h4>
-              <p className="text-xs md:text-sm text-muted-accent-foreground ">{cert.date}</p>
+              <p className="text-xs md:text-sm text-foreground ">{cert.date}</p>
             </div>
           ))}
         </div>
