@@ -188,7 +188,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                   cert.title
                 )}
               </h4>
-              <p className="text-xs md:text-sm text-accent ">{cert.date}</p>
+              <p className="text-xs md:text-sm text-muted-accent-foreground ">{cert.date}</p>
             </div>
           ))}
         </div>
