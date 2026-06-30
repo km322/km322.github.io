@@ -21,13 +21,15 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
   const animationRef = useRef<number>(0);
   const isPausedRef = useRef(false);
   const accumulatorRef = useRef(0);
+  const lastTimeRef = useRef(0);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
-  const animate = useCallback(() => {
+  const animate = useCallback((now: number) => {
     const el = scrollRef.current;
     if (el && !isPausedRef.current) {
-      // Accumulate fractional pixels, apply only whole pixels
-      accumulatorRef.current += 0.2;
+      // Advance by elapsed time so speed is identical on 60Hz and 120Hz displays.
+      const dt = lastTimeRef.current ? Math.min(now - lastTimeRef.current, 64) : 16;
+      accumulatorRef.current += dt * 0.012; // ~12px/sec
       if (accumulatorRef.current >= 1) {
         const px = Math.floor(accumulatorRef.current);
         accumulatorRef.current -= px;
@@ -39,6 +41,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         el.scrollLeft -= halfScroll;
       }
     }
+    lastTimeRef.current = now;
     animationRef.current = requestAnimationFrame(animate);
   }, []);
 
@@ -56,6 +59,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
       if (!animationRef.current) return;
       cancelAnimationFrame(animationRef.current);
       animationRef.current = 0;
+      lastTimeRef.current = 0;
     };
 
     const sync = () => {

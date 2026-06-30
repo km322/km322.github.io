@@ -1,12 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ExternalLink, Eye } from "lucide-react";
 import Image from "next/image";
 import { portfolioData } from "@/lib/portfolio-data";
 
 interface PortfolioSectionProps {
   data?: typeof portfolioData;
+}
+
+// Plays only while on-screen AND the tab is foregrounded AND reduced-motion is
+// off, so the project videos never decode/drain in the background; a poster frame
+// shows whenever the video isn't playing (incl. when autoplay is blocked).
+function ProjectVideo({ src, className }: { src: string; className: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const poster = src.replace(/\.(mp4|mov|webm)$/i, "-poster.jpg");
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let inView = false;
+    const update = () => {
+      if (inView && !document.hidden && !reduce.matches) {
+        el.play().catch(() => {});
+      } else {
+        el.pause();
+      }
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        inView = entries[0]?.isIntersecting ?? false;
+        update();
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    document.addEventListener("visibilitychange", update);
+    reduce.addEventListener("change", update);
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", update);
+      reduce.removeEventListener("change", update);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      loop
+      muted
+      playsInline
+      preload="none"
+      className={className}
+    />
+  );
 }
 
 export function PortfolioSection({
@@ -45,12 +95,8 @@ export function PortfolioSection({
                 <div className="aspect-[4/3] overflow-hidden bg-background relative">
                   {project.image &&
                   /\.(mp4|mov|webm)$/i.test(project.image) ? (
-                    <video
+                    <ProjectVideo
                       src={project.image}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
                       className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                     />
                   ) : (

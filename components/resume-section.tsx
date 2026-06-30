@@ -32,7 +32,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
                 {item.title}
               </h4>
-              <p className="text-xs md:text-sm text-accent mb-2">
+              <p className="text-xs md:text-sm text-muted-accent-foreground mb-2">
                 {item.period}
               </p>
               <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
@@ -112,7 +112,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                 </div>
 
                 {/* Period */}
-                <p className="text-xs md:text-sm text-accent">{item.period}</p>
+                <p className="text-xs md:text-sm text-muted-accent-foreground">{item.period}</p>
               </div>
 
               {/* Description */}
