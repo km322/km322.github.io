@@ -1,4 +1,3 @@
-import { BookOpen, Briefcase, BadgeCheck, GitPullRequest } from "lucide-react";
 import { resumeData } from "@/lib/portfolio-data";
 
 interface ResumeSectionProps {
@@ -9,20 +8,16 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
   return (
     <div className="space-y-8 md:space-y-10">
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-foreground">
           Resume
         </h2>
-        <div className="w-10 h-1 bg-accent rounded-full mb-6" />
       </div>
 
       {/* Education */}
       <div>
-        <div className="flex items-center gap-2 md:gap-3 mb-6">
-          <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-          <h3 className="text-xl md:text-2xl font-bold text-foreground">
-            Education
-          </h3>
-        </div>
+        <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.02em] text-foreground mb-6">
+          Education
+        </h3>
         <div className="space-y-4">
           {data.education.map((item, index) => (
             <div
@@ -32,7 +27,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
               <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
                 {item.title}
               </h4>
-              <p className="text-xs md:text-sm text-accent mb-2">
+              <p className="text-xs md:text-sm text-muted-foreground mb-2">
                 {item.period}
               </p>
               <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
@@ -63,12 +58,9 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
 
       {/* Experience */}
       <div>
-        <div className="flex items-center gap-2 md:gap-3 mb-6">
-          <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-          <h3 className="text-xl md:text-2xl font-bold text-foreground">
-            Experience
-          </h3>
-        </div>
+        <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.02em] text-foreground mb-6">
+          Experience
+        </h3>
 
         <div className="space-y-4">
           {data.experience.map((item, index) => (
@@ -102,7 +94,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                       {item.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-2 py-1 bg-accent/5 text-foreground text-xs font-medium rounded-md border border-accent/5"
+                          className="px-2 py-1 bg-secondary text-muted-foreground text-xs font-medium rounded-md"
                         >
                           {skill}
                         </span>
@@ -112,7 +104,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                 </div>
 
                 {/* Period */}
-                <p className="text-xs md:text-sm text-accent">{item.period}</p>
+                <p className="text-xs md:text-sm text-muted-foreground">{item.period}</p>
               </div>
 
               {/* Description */}
@@ -127,12 +119,9 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
       {/* Open Source Contributions */}
       {data.openSource && data.openSource.length > 0 && (
         <div>
-          <div className="flex items-center gap-2 md:gap-3 mb-6">
-            <GitPullRequest className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-            <h3 className="text-xl md:text-2xl font-bold text-foreground">
-              Open Source Contributions
-            </h3>
-          </div>
+          <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.02em] text-foreground mb-6">
+            Open Source Contributions
+          </h3>
           <div className="space-y-3">
             {data.openSource.map((item, index) => (
               <div key={index} className="flex flex-wrap items-center justify-between gap-2">
@@ -141,7 +130,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                     href={item.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-accent transition-colors underline decoration-muted-foreground/75 hover:decoration-accent"
                   >
                     {item.project}
                   </a>
@@ -151,7 +140,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                     {item.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-2 py-1 bg-accent/5 text-foreground text-xs font-medium rounded-md border border-accent/5"
+                        className="px-2 py-1 bg-secondary text-muted-foreground text-xs font-medium rounded-md"
                       >
                         {skill}
                       </span>
@@ -165,12 +154,9 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
       )}
 
       <div>
-        <div className="flex items-center gap-2 md:gap-3 mb-6">
-          <BadgeCheck className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-          <h3 className="text-xl md:text-2xl font-bold text-foreground">
-            Certifications
-          </h3>
-        </div>
+        <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.02em] text-foreground mb-6">
+          Certifications
+        </h3>
         <div className="space-y-3">
           {data.certifications.map((cert, index) => (
             <div key={index} className="flex justify-between items-center">
@@ -180,7 +166,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-accent transition-colors underline decoration-muted-foreground/75 hover:decoration-accent"
                   >
                     {cert.title}
                   </a>
@@ -188,7 +174,7 @@ export function ResumeSection({ data = resumeData }: ResumeSectionProps) {
                   cert.title
                 )}
               </h4>
-              <p className="text-xs md:text-sm text-accent ">{cert.date}</p>
+              <p className="text-xs md:text-sm text-muted-foreground">{cert.date}</p>
             </div>
           ))}
         </div>

@@ -21,24 +21,26 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
   const animationRef = useRef<number>(0);
   const isPausedRef = useRef(false);
   const accumulatorRef = useRef(0);
+  const lastTimeRef = useRef(0);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
-  const animate = useCallback(() => {
+  const animate = useCallback((now: number) => {
     const el = scrollRef.current;
     if (el && !isPausedRef.current) {
-      // Accumulate fractional pixels, apply only whole pixels
-      accumulatorRef.current += 0.2;
+      // Advance by elapsed time so speed is identical on 60Hz and 120Hz displays.
+      const dt = lastTimeRef.current ? Math.min(now - lastTimeRef.current, 64) : 16;
+      accumulatorRef.current += dt * 0.012; // ~12px/sec
       if (accumulatorRef.current >= 1) {
         const px = Math.floor(accumulatorRef.current);
         accumulatorRef.current -= px;
         el.scrollLeft += px;
       }
-      // When we've scrolled past the first set of items, loop back
       const halfScroll = el.scrollWidth / 2;
       if (el.scrollLeft >= halfScroll) {
         el.scrollLeft -= halfScroll;
       }
     }
+    lastTimeRef.current = now;
     animationRef.current = requestAnimationFrame(animate);
   }, []);
 
@@ -56,6 +58,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
       if (!animationRef.current) return;
       cancelAnimationFrame(animationRef.current);
       animationRef.current = 0;
+      lastTimeRef.current = 0;
     };
 
     const sync = () => {
@@ -84,20 +87,18 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
   };
 
   const handleInteractionEnd = () => {
-    // Resume after a short delay so the user's scroll settles
     resumeTimerRef.current = setTimeout(() => {
       isPausedRef.current = false;
-    }, 2000);
+    }, 500);
   };
 
   return (
     <div className="space-y-8 md:space-y-10">
       {/* About Me */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-foreground mb-4">
           About Me
         </h2>
-        <div className="w-10 h-1 bg-accent rounded-full mb-6" />
         <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
           {data.description.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
@@ -107,32 +108,28 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
 
       {/* What I'm Doing */}
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+        <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.02em] text-foreground mb-6">
           What I'm Doing
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
           {data.services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
-            if (!IconComponent) return null;
             return (
               <div
                 key={index}
-                className="flex gap-3 md:gap-4 p-4 md:p-6 bg-secondary rounded-xl md:rounded-2xl border border-border hover:border-accent transition-colors opacity-80"
+                className="flex flex-col items-center text-center"
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
-                  <IconComponent
-                    className="w-full h-full text-accent"
-                    strokeWidth={1.5}
-                  />
+                <div className="w-9 h-9 md:w-10 md:h-10 text-foreground mb-4">
+                  {IconComponent && (
+                    <IconComponent className="w-full h-full" strokeWidth={1.5} />
+                  )}
                 </div>
-                <div>
-                  <h4 className="text-base md:text-lg font-semibold text-foreground mb-2">
-                    {service.title}
-                  </h4>
-                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                <h4 className="text-base md:text-lg font-semibold tracking-[-0.01em] text-foreground mb-2">
+                  {service.title}
+                </h4>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs">
+                  {service.description}
+                </p>
               </div>
             );
           })}
@@ -141,7 +138,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
 
       {/* Clients with scrollable auto-marquee */}
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+        <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.02em] text-foreground mb-6">
           Professional Experience
         </h3>
 
@@ -161,7 +158,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                 href={client.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90 hover:opacity-100"
+                className="group flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-foreground/25 transition-colors opacity-90 hover:opacity-100"
               >
                 <Image
                   src={client.logo}
@@ -169,7 +166,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                   width={110}
                   height={46}
                   sizes="(max-width: 768px) 128px, 160px"
-                  className={`w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity ${logoDark ? "dark:hidden" : ""}`}
+                  className={`w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all ${logoDark ? "dark:hidden" : ""}`}
                 />
                 {logoDark && (
                   <Image
@@ -178,7 +175,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                     width={110}
                     height={46}
                     sizes="(max-width: 768px) 128px, 160px"
-                    className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity hidden dark:block"
+                    className="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all hidden dark:block"
                   />
                 )}
               </a>

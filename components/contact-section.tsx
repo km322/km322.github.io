@@ -2,7 +2,6 @@
 
 import type { FormEvent } from "react"
 
-import { Send } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import emailjs from '@emailjs/browser'
 
@@ -23,25 +22,33 @@ declare global {
   }
 }
 
-// Load the Turnstile script once globally (survives component re-mounts)
-function loadTurnstileScript(): Promise<void> {
+function loadTurnstileScript(signal?: AbortSignal): Promise<void> {
   if (window.__turnstileScriptLoaded && window.turnstile) {
     return Promise.resolve()
   }
-  if (document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
-    return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    if (signal?.aborted) return reject(new Error('aborted'))
+    signal?.addEventListener('abort', () => reject(new Error('aborted')), { once: true })
+
+    // Script already injected (e.g. component remounted): poll for the global,
+    // bounded (~5s) so it can't spin forever, and cancellable via the signal.
+    if (document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+      let tries = 0
       const check = () => {
+        if (signal?.aborted) return
         if (window.turnstile) { window.__turnstileScriptLoaded = true; resolve() }
+        else if (++tries > 100) reject(new Error('turnstile load timeout'))
         else setTimeout(check, 50)
       }
       check()
-    })
-  }
-  return new Promise((resolve) => {
+      return
+    }
+
     const script = document.createElement('script')
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
     script.async = true
     script.onload = () => { window.__turnstileScriptLoaded = true; resolve() }
+    script.onerror = () => reject(new Error('turnstile failed to load'))
     document.head.appendChild(script)
   })
 }
@@ -55,20 +62,20 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [turnstileToken, setTurnstileToken] = useState<string>('')
+  const [loadError, setLoadError] = useState(false)
   const turnstileRef = useRef<HTMLDivElement>(null)
   const widgetIdRef = useRef<string>('')
 
   useEffect(() => {
     let cancelled = false
+    const controller = new AbortController()
 
-    loadTurnstileScript().then(() => {
+    loadTurnstileScript(controller.signal).then(() => {
       if (cancelled || !turnstileRef.current) return
-      // Clean up any previous widget in this container
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current)
         widgetIdRef.current = ''
       }
-      // Defer render to next frame so it doesn't block the UI
       requestAnimationFrame(() => {
         if (cancelled || !turnstileRef.current) return
         widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
@@ -85,10 +92,13 @@ export function ContactSection() {
           theme: 'auto',
         })
       })
+    }).catch(() => {
+      if (!cancelled) setLoadError(true)
     })
 
     return () => {
       cancelled = true
+      controller.abort()
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current)
         widgetIdRef.current = ''
@@ -109,7 +119,6 @@ export function ContactSection() {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS configuration from environment variables
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
@@ -134,13 +143,11 @@ export function ContactSection() {
     } finally {
       setIsSubmitting(false)
 
-      // Reset Turnstile widget
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.reset(widgetIdRef.current)
         setTurnstileToken('')
       }
 
-      // Reset status message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
     }
   }
@@ -148,8 +155,7 @@ export function ContactSection() {
   return (
     <div className="space-y-6 md:space-y-8">
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Contact</h2>
-        <div className="w-10 h-1 bg-accent rounded-full mb-6" />
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-foreground">Contact</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
@@ -205,6 +211,17 @@ export function ContactSection() {
         {/* Turnstile Widget */}
         <div ref={turnstileRef} className="flex justify-center md:justify-start" />
 
+        {loadError && (
+          <p className="text-sm text-muted-foreground">
+            Verification couldn&apos;t load (it may be blocked by your browser or an
+            extension). You can email me directly at{" "}
+            <a href="mailto:mittal.ketan1@gmail.com" className="text-accent underline">
+              mittal.ketan1@gmail.com
+            </a>
+            .
+          </p>
+        )}
+
         {submitStatus === 'success' && (
           <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-600 dark:text-green-400 text-sm">
             ✓ Message sent successfully! I'll get back to you soon.
@@ -220,9 +237,8 @@ export function ContactSection() {
         <button
           type="submit"
           disabled={isSubmitting || !turnstileToken}
-          className="flex items-center justify-center gap-2 w-full md:w-auto px-6 md:px-8 py-3 md:py-3.5 bg-accent text-accent-foreground rounded-xl font-medium hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5 transition-all text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+          className="inline-flex items-center justify-center w-full md:w-auto px-7 md:px-9 py-3 md:py-3.5 bg-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition-opacity text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <Send className="w-4 h-4" />
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>

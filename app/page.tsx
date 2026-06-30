@@ -24,17 +24,18 @@ export default function Home() {
             <ProfileSidebar data={profileData} />
 
             {/* Main Content */}
-            <main className="flex-1 bg-card/80 rounded-xl md:rounded-2xl border border-border overflow-hidden">
+            <main className="flex-1 bg-card rounded-xl md:rounded-2xl border border-border overflow-hidden">
               {/* Navigation */}
               <nav className="flex gap-1 sm:gap-2 md:gap-4 p-3 sm:p-4 md:p-6 border-b border-border overflow-x-auto scrollbar-hide">
                 {["about", "resume", "projects", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() => setActiveSection(section)}
-                    className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium capitalize transition-colors whitespace-nowrap flex-shrink-0 ${
+                    aria-current={activeSection === section ? "page" : undefined}
+                    className={`relative px-2 py-2.5 text-xs sm:text-sm font-medium capitalize transition-colors whitespace-nowrap flex-shrink-0 ${
                       activeSection === section
-                        ? "text-foreground bg-accent/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                        ? "text-foreground after:absolute after:inset-x-2 after:bottom-1 after:h-0.5 after:rounded-full after:bg-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {section}

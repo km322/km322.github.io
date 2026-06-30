@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ExternalLink, Eye } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { portfolioData } from "@/lib/portfolio-data";
 
@@ -9,135 +9,164 @@ interface PortfolioSectionProps {
   data?: typeof portfolioData;
 }
 
+// Small logos / illustrations get a little padding; larger media fills the box.
+const PADDED = new Set<string>(["/TimmyOk.svg", "/cred-logo.svg", "/POC.png"]);
+
+// Plays only while the tile is on-screen AND the tab is foregrounded AND
+// reduced-motion is off — so the project videos never decode/drain in the
+// background. A poster frame shows whenever the video isn't playing (including
+// when autoplay is blocked, e.g. iOS Low Power Mode), so tiles are never blank.
+function ProjectVideo({ src, className }: { src: string; className: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const poster = src.replace(/\.(mp4|mov|webm)$/i, "-poster.jpg");
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let inView = false;
+    const update = () => {
+      if (inView && !document.hidden && !reduce.matches) {
+        el.play().catch(() => {});
+      } else {
+        el.pause();
+      }
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        inView = entries[0]?.isIntersecting ?? false;
+        update();
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    document.addEventListener("visibilitychange", update);
+    reduce.addEventListener("change", update);
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", update);
+      reduce.removeEventListener("change", update);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      loop
+      muted
+      playsInline
+      preload="none"
+      className={className}
+    />
+  );
+}
+
 export function PortfolioSection({
   data = portfolioData,
 }: PortfolioSectionProps) {
+  // Tracks which card is "open" on touch devices (no hover).
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <div className="space-y-6 md:space-y-8">
       {/* Header */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-foreground">
           Projects
         </h2>
-        <div className="w-10 h-1 bg-accent rounded-full mb-6" />
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {data.projects.map((project, index) => {
+          const isVideo =
+            project.image && /\.(mp4|mov|webm)$/i.test(project.image);
+          const fitClass = PADDED.has(project.image)
+            ? "object-contain p-5 md:p-6"
+            : "object-contain";
           const isActive = activeIndex === index;
+          const mediaClass = `${fitClass} transition-transform duration-500 ease-out group-hover:scale-[1.03]`;
 
           return (
-            <div key={index} className="space-y-3">
+            <div key={index} className="flex flex-col">
               {/* Card */}
               <div
-                onClick={() =>
-                  setActiveIndex(isActive ? null : index)
-                }
-                className="group relative bg-secondary rounded-xl md:rounded-2xl border border-border
-                           overflow-hidden cursor-pointer
-                           hover:border-accent transition-all duration-300
-                           hover:shadow-xl hover:shadow-accent/10"
+                onClick={() => setActiveIndex(isActive ? null : index)}
+                className="group relative aspect-[4/3] overflow-hidden rounded-xl md:rounded-2xl border border-border bg-secondary cursor-pointer transition-colors hover:border-foreground/25"
               >
-                {/* Image / Video */}
-                <div className="aspect-[4/3] overflow-hidden bg-background relative">
-                  {project.image &&
-                  /\.(mp4|mov|webm)$/i.test(project.image) ? (
-                    <video
-                      src={project.image}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                    />
-                  ) : (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-contain group-hover:scale-110 transition-transform duration-500"
-                    />
-                  )}
-                </div>
+                {/* Media */}
+                {isVideo ? (
+                  <ProjectVideo
+                    src={project.image}
+                    className={`w-full h-full ${mediaClass}`}
+                  />
+                ) : (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className={mediaClass}
+                  />
+                )}
 
-                {/* Overlay */}
+                {/* Reveal overlay — hover (desktop), tap (touch), focus (keyboard) */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20
-                              flex flex-col justify-end p-4 md:p-6
-                              transition-all duration-300
-                              ${
-                                isActive
-                                  ? "opacity-100"
-                                  : "opacity-0 group-hover:opacity-100"
-                              }`}
+                  className={`absolute inset-0 flex flex-col justify-end p-4 md:p-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent transition-opacity duration-300 ${
+                    isActive
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto"
+                  }`}
                 >
                   <h3
-                    className={`text-lg md:text-xl font-bold text-foreground mb-4
-                                transform transition-transform duration-300
-                                ${
-                                  isActive
-                                    ? "translate-y-0"
-                                    : "translate-y-4 group-hover:translate-y-0"
-                                }`}
+                    className={`text-base md:text-lg font-semibold tracking-[-0.01em] text-white mb-3 transition-transform duration-300 ${
+                      isActive
+                        ? "translate-y-0"
+                        : "translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0"
+                    }`}
                   >
                     {project.title}
                   </h3>
 
                   <div
-                    className={`flex gap-2 md:gap-3
-                                transform transition-transform duration-300 delay-75
-                                ${
-                                  isActive
-                                    ? "translate-y-0"
-                                    : "translate-y-4 group-hover:translate-y-0"
-                                }`}
+                    className={`flex items-center gap-2 transition-transform duration-300 delay-75 ${
+                      isActive
+                        ? "translate-y-0"
+                        : "translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0"
+                    }`}
                   >
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2
-                                 bg-accent text-accent-foreground rounded-lg
-                                 text-xs md:text-sm font-medium hover:opacity-90 transition-opacity"
+                      className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-xs md:text-sm font-medium text-black hover:opacity-90 transition-opacity"
                     >
-                      <Eye className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                      Preview
+                      View
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
-
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2
-                                 bg-secondary border border-border text-foreground rounded-lg
-                                 text-xs md:text-sm font-medium
-                                 hover:bg-accent hover:text-accent-foreground hover:border-accent
-                                 transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs md:text-sm font-medium text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
                     >
-                      <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                      Visit
+                      Code
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
               </div>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-1 md:gap-2 justify-center">
-                {project.tech.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-2 py-1 bg-accent/20 text-accent text-xs
-                               font-medium rounded-md border border-accent/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              {/* Tech */}
+              {project.tech && project.tech.length > 0 && (
+                <p className="mt-3 text-xs md:text-sm text-muted-foreground">
+                  {project.tech.join(" · ")}
+                </p>
+              )}
             </div>
           );
         })}
