@@ -165,7 +165,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                 href={client.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors opacity-90 hover:opacity-100"
+                className="group flex-shrink-0 w-32 h-20 md:w-40 md:h-24 bg-secondary rounded-xl md:rounded-2xl border border-border flex items-center justify-center p-4 md:p-6 hover:border-accent transition-colors"
               >
                 <Image
                   src={client.logo}
@@ -173,7 +173,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                   width={110}
                   height={46}
                   sizes="(max-width: 768px) 128px, 160px"
-                  className={`w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity ${logoDark ? "dark:hidden" : ""}`}
+                  className={`w-full h-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300 ${logoDark ? "dark:hidden" : ""}`}
                 />
                 {logoDark && (
                   <Image
@@ -182,7 +182,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
                     width={110}
                     height={46}
                     sizes="(max-width: 768px) 128px, 160px"
-                    className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity hidden dark:block"
+                    className="w-full h-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300 hidden dark:block"
                   />
                 )}
               </a>
