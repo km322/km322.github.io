@@ -91,7 +91,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
     // Resume after a short delay so the user's scroll settles
     resumeTimerRef.current = setTimeout(() => {
       isPausedRef.current = false;
-    }, 2000);
+    }, 500);
   };
 
   return (
