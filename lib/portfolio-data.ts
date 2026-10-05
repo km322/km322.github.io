@@ -242,12 +242,11 @@ export const portfolioData = {
       githubUrl: "https://github.com/km322/cosmos-final-project",
     },
     {
-      title: "Anti-Refugee Sentiment Analysis",
-      image: "/Thumbnail.png",
-      tech: ["Sentiment Analysis", "Multi-layer Perceptron", "Word2Vec"],
-      liveUrl:
-        "https://colab.research.google.com/drive/1yPOGYJQ5mfs-J94SpO6bmSFHLnnWhgkY?usp=sharing",
-      githubUrl: "https://colab.research.google.com/drive/11eNVhpLSdz3bnSdE2O-s6sVL87fPqjvI?usp=sharing",
+      title: "Third Brain",
+      image: "/third_brain.mp4",
+      tech: ["MCP", "RAG", "FastAPI"],
+      liveUrl: "https://third-brain.ai",
+      githubUrl: "https://github.com/km322/Third-Brain",
     },
   ],
 };
