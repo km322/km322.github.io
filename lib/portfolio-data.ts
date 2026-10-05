@@ -244,7 +244,7 @@ export const portfolioData = {
     {
       title: "Third Brain",
       image: "/third_brain.mp4",
-      tech: ["MCP", "Redis", "pgvector", "FastAPI"],
+      tech: ["MCP", "Docker", "Redis", "pgvector", "FastAPI"],
       liveUrl: "https://third-brain.ai",
       githubUrl: "https://github.com/km322/Third-Brain",
     },
